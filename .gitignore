@@ -1,3 +1,8 @@
+#重いデータが入ってるフォルダを除外
+/Assets/Font/
+/Assets/3DModel/
+/Assets/Material/
+
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
