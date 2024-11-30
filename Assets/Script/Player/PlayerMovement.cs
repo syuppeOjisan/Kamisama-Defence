@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private float invincibleEndTime;
     private AudioSource audioSource;
     private UIManager uiManager; // UIManagerの参照
+    private BoundaryController boundaryController; // 境界管理の参照
 
     void Start()
     {
@@ -29,6 +30,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("UIManagerがシーンに存在しません");
         }
+
+        // BoundaryControllerの参照を取得
+        boundaryController = FindObjectOfType<BoundaryController>();
+        if (boundaryController == null)
+        {
+            Debug.LogError("BoundaryControllerがシーンに存在しません");
+        }
     }
 
     void FixedUpdate()
@@ -40,7 +48,16 @@ public class PlayerMovement : MonoBehaviour
             float moveZ = Input.GetAxis("Vertical");
             float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? dashSpeed : moveSpeed;
             Vector3 movement = new Vector3(moveX, 0, moveZ) * currentSpeed * Time.fixedDeltaTime;
-            rb.MovePosition(transform.position + movement);
+
+            Vector3 newPosition = transform.position + movement;
+
+            // 境界内に位置を制限
+            if (boundaryController != null)
+            {
+                newPosition = boundaryController.ClampPosition(newPosition);
+            }
+
+            rb.MovePosition(newPosition);
         }
     }
 
