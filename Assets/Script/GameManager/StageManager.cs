@@ -8,6 +8,9 @@ public class StageManager : MonoBehaviour
 {
     public GameObject character1Prefab;
     public GameObject character2Prefab;
+
+    public Transform playerSpawnPoint; // プレイヤースポーンポイント
+
     private GameObject spawnedCharacter;
 
     public float initialOfferingPoints = 100f;
@@ -28,17 +31,30 @@ public class StageManager : MonoBehaviour
         UpdateOfferingPointsUI();
         audioSource = gameObject.AddComponent<AudioSource>();
 
+        SpawnPlayerCharacter();
+        SetupCameraFollow();
+    }
+
+    void SpawnPlayerCharacter()
+    {
         int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
+
+        if (playerSpawnPoint == null)
+        {
+            Debug.LogError("プレイヤースポーンポイントが設定されていません！");
+            return;
+        }
+
+        Vector3 spawnPosition = playerSpawnPoint.position;
+
         if (selectedCharacter == 1)
         {
-            spawnedCharacter = Instantiate(character1Prefab, new Vector3(0, 0, 0), Quaternion.identity);
+            spawnedCharacter = Instantiate(character1Prefab, spawnPosition, Quaternion.identity);
         }
         else if (selectedCharacter == 2)
         {
-            spawnedCharacter = Instantiate(character2Prefab, new Vector3(0, 0, 0), Quaternion.identity);
+            spawnedCharacter = Instantiate(character2Prefab, spawnPosition, Quaternion.identity);
         }
-
-        SetupCameraFollow();
     }
 
     void SetupCameraFollow()
