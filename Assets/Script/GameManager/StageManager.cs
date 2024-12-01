@@ -65,11 +65,6 @@ public class StageManager : MonoBehaviour
             mainCameraFollow.playerTransform = spawnedCharacter.transform;
         }
 
-        MiniMapCameraFollow miniMapCameraFollow = FindObjectOfType<MiniMapCameraFollow>();
-        if (miniMapCameraFollow != null)
-        {
-            miniMapCameraFollow.player = spawnedCharacter.transform;
-        }
     }
 
     public void AddOfferingPoints(float amount)
