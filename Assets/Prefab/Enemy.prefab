@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4317011993342203487}
   - component: {fileID: 2399877747839433691}
   - component: {fileID: 2004174655038002074}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -150,7 +150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 20
-  damageToTarget: 20
+  damage: 10
+  detectionRange: 15
+  attackRange: 5
+  attackDelay: 1.5
   deathSound: {fileID: 8300000, guid: 0b2fcec64f6c8bc49842566e059a85db, type: 3}
   hpBarFill: {fileID: 829620378423564792}
   hpBarBackground: {fileID: 1885380978403543252}
@@ -201,7 +204,7 @@ GameObject:
   - component: {fileID: 7897287069392220631}
   - component: {fileID: 2851952203144735431}
   - component: {fileID: 829620378423564792}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +280,7 @@ GameObject:
   - component: {fileID: 5971163406349258164}
   - component: {fileID: 8817845569425352975}
   - component: {fileID: 3248151148052154297}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CanvasWorldSpace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +382,7 @@ GameObject:
   - component: {fileID: 7285756562253570617}
   - component: {fileID: 489477402248170737}
   - component: {fileID: 1885380978403543252}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}

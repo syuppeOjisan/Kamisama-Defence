@@ -150,6 +150,5 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  unitCost: 5
   shootSound: {fileID: 8300000, guid: 2953b6e778c176c4d8408010d534f326, type: 3}
-  maxLevel: 5
+  upgradeSound: {fileID: 0}

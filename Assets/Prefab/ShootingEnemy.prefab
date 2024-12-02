@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5866741728918693371}
   - component: {fileID: 4101691074060253677}
   - component: {fileID: 5834738136816293810}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: CanvasWorldSpace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 1525845213135597613}
   - component: {fileID: 8001284273664932434}
   - component: {fileID: 885032488447566311}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 7420538574044948078}
   - component: {fileID: 156131842863660218}
   - component: {fileID: 5053672181963060654}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 1242382258966001757}
   - component: {fileID: 6276092707928226674}
   - component: {fileID: 2823933848700921735}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ShootingEnemy
   m_TagString: ShootingEnemy
   m_Icon: {fileID: 0}
