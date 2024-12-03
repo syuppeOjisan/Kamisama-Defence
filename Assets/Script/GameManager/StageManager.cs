@@ -88,7 +88,7 @@ public class StageManager : MonoBehaviour
     {
         if (offeringPointsText != null)
         {
-            offeringPointsText.text = "Offering Points: " + offeringPoints.ToString();
+            offeringPointsText.text = "‚¨æÎ‘K: " + offeringPoints.ToString();
         }
     }
 

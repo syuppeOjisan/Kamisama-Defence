@@ -31,41 +31,28 @@ public class StageSelectManager : MonoBehaviour
         stage3Button.interactable = true;
 
         // ボタンのクリックイベントを設定
-        stage1Button.onClick.AddListener(SelectStage1);
-        stage2Button.onClick.AddListener(SelectStage2);
-        stage3Button.onClick.AddListener(SelectStage3);
+        stage1Button.onClick.AddListener(() => SelectStage(1));
+        stage2Button.onClick.AddListener(() => SelectStage(2));
+        stage3Button.onClick.AddListener(() => SelectStage(3));
         returnToTitleButton.onClick.AddListener(ReturnToTitle);
         pointAllocationButton.onClick.AddListener(GoToPointAllocation);
     }
 
-    // ステージ1を選択してキャラクターセレクトに移行
-    public void SelectStage1()
+    // ステージ選択してキャラクターセレクトに移行
+    public void SelectStage(int stageNumber)
     {
-        // ステージ1を選択し、PlayerPrefsに保存
-        PlayerPrefs.SetInt("SelectedStage", 1);
+        // 選択したステージ番号をPlayerPrefsに保存
+        PlayerPrefs.SetInt("SelectedStage", stageNumber);
 
-        // キャラクターセレクトシーンに遷移
-        SceneManager.LoadScene("CharacterSelectScene");
-    }
-
-    // ステージ2を選択してキャラクターセレクトに移行
-    public void SelectStage2()
-    {
-        // ステージ2を選択し、PlayerPrefsに保存
-        PlayerPrefs.SetInt("SelectedStage", 2);
-
-        // キャラクターセレクトシーンに遷移
-        SceneManager.LoadScene("CharacterSelectScene");
-    }
-
-    // ステージ3を選択してキャラクターセレクトに移行
-    public void SelectStage3()
-    {
-        // ステージ1を選択し、PlayerPrefsに保存
-        PlayerPrefs.SetInt("SelectedStage", 3);
-
-        // キャラクターセレクトシーンに遷移
-        SceneManager.LoadScene("CharacterSelectScene");
+        // キャラクターセレクトシーンに遷移（フェードアウト付き）
+        if (fadeController != null)
+        {
+            StartCoroutine(fadeController.FadeOutAndLoadScene("CharacterSelectScene"));
+        }
+        else
+        {
+            SceneManager.LoadScene("CharacterSelectScene");
+        }
     }
 
     // タイトルシーンに戻る
