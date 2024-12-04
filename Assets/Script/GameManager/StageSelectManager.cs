@@ -13,22 +13,25 @@ public class StageSelectManager : MonoBehaviour
     public Button pointAllocationButton; // 永続強化シーンへのボタン
 
     private FadeController fadeController;
+    private Button[] allButtons; // シーン内のすべてのボタン
 
     void Start()
     {
         // FadeControllerをシーン内から探す
         fadeController = FindObjectOfType<FadeController>();
 
+        // シーン内のすべてのボタンを取得
+        allButtons = FindObjectsOfType<Button>();
+
         // シーン開始時にフェードインを実行
         if (fadeController != null)
         {
-            StartCoroutine(fadeController.FadeIn());
+            SetButtonsInteractable(false); // フェード中はボタンを無効化
+            StartCoroutine(fadeController.FadeIn(() =>
+            {
+                SetButtonsInteractable(true); // フェードイン完了後にボタンを有効化
+            }));
         }
-
-        // 初期化：ステージ選択時はキャラクター選択を考慮しない
-        stage1Button.interactable = true;
-        stage2Button.interactable = true;
-        stage3Button.interactable = true;
 
         // ボタンのクリックイベントを設定
         stage1Button.onClick.AddListener(() => SelectStage(1));
@@ -41,10 +44,9 @@ public class StageSelectManager : MonoBehaviour
     // ステージ選択してキャラクターセレクトに移行
     public void SelectStage(int stageNumber)
     {
-        // 選択したステージ番号をPlayerPrefsに保存
+        SetButtonsInteractable(false); // ボタンを無効化
         PlayerPrefs.SetInt("SelectedStage", stageNumber);
 
-        // キャラクターセレクトシーンに遷移（フェードアウト付き）
         if (fadeController != null)
         {
             StartCoroutine(fadeController.FadeOutAndLoadScene("CharacterSelectScene"));
@@ -58,6 +60,8 @@ public class StageSelectManager : MonoBehaviour
     // タイトルシーンに戻る
     public void ReturnToTitle()
     {
+        SetButtonsInteractable(false); // ボタンを無効化
+
         if (fadeController != null)
         {
             StartCoroutine(fadeController.FadeOutAndLoadScene("TitleScene"));
@@ -71,6 +75,8 @@ public class StageSelectManager : MonoBehaviour
     // 永続強化シーンに遷移する
     public void GoToPointAllocation()
     {
+        SetButtonsInteractable(false); // ボタンを無効化
+
         if (fadeController != null)
         {
             StartCoroutine(fadeController.FadeOutAndLoadScene("PointAllocationScene"));
@@ -78,6 +84,15 @@ public class StageSelectManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene("PointAllocationScene");
+        }
+    }
+
+    // ボタンの有効/無効を設定
+    private void SetButtonsInteractable(bool interactable)
+    {
+        foreach (Button button in allButtons)
+        {
+            button.interactable = interactable;
         }
     }
 }
