@@ -439,6 +439,8 @@ MonoBehaviour:
   attackRange: 3
   attackDelay: 1.5
   deathSound: {fileID: 8300000, guid: 0b2fcec64f6c8bc49842566e059a85db, type: 3}
+  itemDropPrefab: {fileID: 9104373212988180455, guid: 73f784b1ca154604c9c4a9996c3abb06, type: 3}
+  dropChance: 0.8
   hpBarFill: {fileID: 8326295367582454983}
   hpBarBackground: {fileID: 3167145500125053441}
 --- !u!114 &5754806167902544973
