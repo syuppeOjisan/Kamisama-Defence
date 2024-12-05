@@ -10,13 +10,13 @@ public class StageManager : MonoBehaviour
     public GameObject character2Prefab;
 
     public Transform playerSpawnPoint; // プレイヤースポーンポイント
-
     private GameObject spawnedCharacter;
 
     public float initialOfferingPoints = 100f;
     public float offeringPoints;
     public TMP_Text offeringPointsText;
 
+    public TMP_Text waveInfoText; // 新しいUIテキスト (ウェーブ情報)
     public List<FiniteEnemySpawner> enemySpawners; // 複数のスポナー
     public List<int> totalEnemiesPerWave; // 各ウェーブの合計敵数
     private int enemiesDefeated = 0;
@@ -33,6 +33,7 @@ public class StageManager : MonoBehaviour
 
         SpawnPlayerCharacter();
         SetupCameraFollow();
+        UpdateWaveInfoUI(); // 初期UIを更新
     }
 
     void SpawnPlayerCharacter()
@@ -64,7 +65,6 @@ public class StageManager : MonoBehaviour
         {
             mainCameraFollow.playerTransform = spawnedCharacter.transform;
         }
-
     }
 
     public void AddOfferingPoints(float amount)
@@ -97,6 +97,8 @@ public class StageManager : MonoBehaviour
         enemiesDefeated++;
         Debug.Log("敵を倒しました。現在の撃破数: " + enemiesDefeated);
 
+        UpdateWaveInfoUI(); // 敵撃破数を更新
+
         if (enemiesDefeated >= totalEnemiesPerWave[currentWave])
         {
             NextWave();
@@ -114,6 +116,7 @@ public class StageManager : MonoBehaviour
                 spawner.StartNextWave();
             }
             PlayWaveCompleteSound();
+            UpdateWaveInfoUI(); // 新しいウェーブの情報を更新
         }
         else
         {
@@ -133,5 +136,13 @@ public class StageManager : MonoBehaviour
     {
         Debug.Log("ステージクリア！");
         SceneManager.LoadScene("StageClearScene");
+    }
+
+    private void UpdateWaveInfoUI()
+    {
+        if (waveInfoText != null)
+        {
+            waveInfoText.text = $"Wave {currentWave + 1} : {enemiesDefeated}/{totalEnemiesPerWave[currentWave]}";
+        }
     }
 }
