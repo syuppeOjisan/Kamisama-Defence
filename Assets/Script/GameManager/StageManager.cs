@@ -17,10 +17,12 @@ public class StageManager : MonoBehaviour
     public TMP_Text offeringPointsText;
 
     public TMP_Text waveInfoText; // 新しいUIテキスト (ウェーブ情報)
+    public TMP_Text faithPointsText; // 信仰ポイントUI (ステージ内)
     public List<FiniteEnemySpawner> enemySpawners; // 複数のスポナー
     public List<int> totalEnemiesPerWave; // 各ウェーブの合計敵数
     private int enemiesDefeated = 0;
     private int currentWave = 0;
+    private int stageFaithPoints = 0; // ステージ内で取得した信仰ポイント
 
     public AudioClip waveCompleteSound;
     private AudioSource audioSource;
@@ -34,6 +36,9 @@ public class StageManager : MonoBehaviour
         SpawnPlayerCharacter();
         SetupCameraFollow();
         UpdateWaveInfoUI(); // 初期UIを更新
+        stageFaithPoints = 0;
+        UpdateFaithPointsUI();
+
     }
 
     void SpawnPlayerCharacter()
@@ -92,6 +97,20 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    public void AddFaithPoints(int amount)
+    {
+        stageFaithPoints += amount;
+        UpdateFaithPointsUI();
+    }
+
+    private void UpdateFaithPointsUI()
+    {
+        if (faithPointsText != null)
+        {
+            faithPointsText.text = $"信仰ポイント: {stageFaithPoints}";
+        }
+    }
+
     public void EnemyDefeated()
     {
         enemiesDefeated++;
@@ -135,6 +154,7 @@ public class StageManager : MonoBehaviour
     void StageClear()
     {
         Debug.Log("ステージクリア！");
+        FaithPointManager.Instance.AddFaithPoints(stageFaithPoints);
         SceneManager.LoadScene("StageClearScene");
     }
 
@@ -144,5 +164,12 @@ public class StageManager : MonoBehaviour
         {
             waveInfoText.text = $"Wave {currentWave + 1} : {enemiesDefeated}/{totalEnemiesPerWave[currentWave]}";
         }
+    }
+
+    void GameOver()
+    {
+        stageFaithPoints = 0;
+        FaithPointManager.Instance.ResetFaithPoints();
+        SceneManager.LoadScene("GameOverScene");
     }
 }
