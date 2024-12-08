@@ -459,15 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitPrefabs:
-  - {fileID: 6924548525672517108, guid: 5daaffd568f0a8847a521e7890539ed8, type: 3}
-  - {fileID: 6254240276320578089, guid: ad8ae172551301c41b8fb22532ff6c02, type: 3}
-  - {fileID: 4315140225467369452, guid: dae323b621ffe294ab9b0e7968e1284c, type: 3}
-  - {fileID: 4209371180941921508, guid: 4c4dc1ffa5860f9409d62865650fef20, type: 3}
   - {fileID: 8901543840918695278, guid: e8feab53caf4838459d5adfd04e1961c, type: 3}
-  - {fileID: 2179966752446798705, guid: 9d327aeecad2a39438302c44f652b419, type: 3}
-  - {fileID: 3513545189223830994, guid: 39d0ba5dfa9c6624fbc406f5d49cb632, type: 3}
-  - {fileID: 9209263053062161210, guid: b76ec56368d503643a15c2a92b580f34, type: 3}
-  - {fileID: 8156526602318455152, guid: 2dd88b1d47a616d499ed00164a2c4574, type: 3}
   - {fileID: 2251246138356505684, guid: 7b5c07657908eb646857da1e0aaa102c, type: 3}
   selectedUnitIndex: 0
   placementPointerPrefab: {fileID: 4565730129134922708, guid: 3869664eed027b94d8bf2f61612c8315, type: 3}

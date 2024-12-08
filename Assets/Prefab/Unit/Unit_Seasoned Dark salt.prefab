@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2251246138356505684
+--- !u!1 &4896297676002513353
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,64 +8,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3382980107602194452}
-  - component: {fileID: -8514908819694957722}
+  - component: {fileID: 3157646922940143425}
+  - component: {fileID: 2701158159241138551}
   m_Layer: 0
-  m_Name: Unit_Chinese_Umbrella
+  m_Name: Unit_Seasoned Dark salt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3382980107602194452
+--- !u!4 &3157646922940143425
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2251246138356505684}
+  m_GameObject: {fileID: 4896297676002513353}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -18.582102, y: -0.011, z: -6.698012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 424407053349011545}
+  - {fileID: 5655519106026814712}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8514908819694957722
+--- !u!114 &2701158159241138551
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2251246138356505684}
+  m_GameObject: {fileID: 4896297676002513353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb53facdbff5da44a90e6f42b6a1e10, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cbaa342fc4bac340a1c46f3aef583f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slowEffectRange:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
   slowAmount:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - -1
+  - -1.3
+  - -1.6
+  - -1.9
+  - -2.5
   upgradeCosts:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
   slowEffectSound: {fileID: 0}
-  upgradeSound: {fileID: 0}
---- !u!1 &8830970261899206719
+  upgradeSound: {fileID: 8300000, guid: 4bb4f5ee446ad474bbbb1d7fdb46df3a, type: 3}
+--- !u!1 &7630856141400880281
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,46 +73,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 424407053349011545}
-  - component: {fileID: 8274445853903987031}
-  - component: {fileID: 1189354609339231990}
+  - component: {fileID: 5655519106026814712}
+  - component: {fileID: 9218394277174430169}
+  - component: {fileID: 3435410920225488758}
   m_Layer: 0
-  m_Name: Chinese_Umbrella
+  m_Name: Seasoned Dark salt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &424407053349011545
+--- !u!4 &5655519106026814712
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8830970261899206719}
+  m_GameObject: {fileID: 7630856141400880281}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.513, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0, y: -0.225, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3382980107602194452}
+  m_Father: {fileID: 3157646922940143425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8274445853903987031
+--- !u!33 &9218394277174430169
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8830970261899206719}
-  m_Mesh: {fileID: 7353598064242621745, guid: 8da5d3d1a9b39814b8d3105af399c8ac, type: 3}
---- !u!23 &1189354609339231990
+  m_GameObject: {fileID: 7630856141400880281}
+  m_Mesh: {fileID: -1251480464448414627, guid: 0249ca908bf661d47bc87115951c35d2, type: 3}
+--- !u!23 &3435410920225488758
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8830970261899206719}
+  m_GameObject: {fileID: 7630856141400880281}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -126,7 +126,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ccc805c35adb0f4c81d2c36342f7f57, type: 2}
+  - {fileID: 2100000, guid: 279a7f3b64f88bc418c122586a8e99de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
