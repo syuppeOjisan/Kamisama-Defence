@@ -9,6 +9,13 @@ public class StageSelectManager : MonoBehaviour
     public Button stage1Button;
     public Button stage2Button;
     public Button stage3Button;
+    public Button stage4Button;
+    public Button stage5Button;
+    public Button stage6Button;
+    public Button stage7Button;
+    public Button stage8Button;
+    public Button stage9Button;
+    public Button stage10Button;
     public Button returnToTitleButton; // タイトルに戻るボタン
     public Button pointAllocationButton; // 永続強化シーンへのボタン
 
@@ -37,6 +44,13 @@ public class StageSelectManager : MonoBehaviour
         stage1Button.onClick.AddListener(() => SelectStage(1));
         stage2Button.onClick.AddListener(() => SelectStage(2));
         stage3Button.onClick.AddListener(() => SelectStage(3));
+        stage4Button.onClick.AddListener(() => SelectStage(4));
+        stage5Button.onClick.AddListener(() => SelectStage(5));
+        stage6Button.onClick.AddListener(() => SelectStage(6));
+        stage7Button.onClick.AddListener(() => SelectStage(7));
+        stage8Button.onClick.AddListener(() => SelectStage(8));
+        stage9Button.onClick.AddListener(() => SelectStage(9));
+        stage10Button.onClick.AddListener(() => SelectStage(10));
         returnToTitleButton.onClick.AddListener(ReturnToTitle);
         pointAllocationButton.onClick.AddListener(GoToPointAllocation);
     }
