@@ -120,9 +120,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4651757755898024501, guid: 4a5ec03be65ecbc47b0cd2f7529454ce, type: 3}
   firePoint: {fileID: 4377955588661946747}
-  fireRate: 0.3
-  projectileSpeed: 5
-  damage: 15
-  range: 8
-  unitCost: 5
+  fireRates:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  projectileSpeeds:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  damages:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  ranges:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  upgradeCosts:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   shootSound: {fileID: 8300000, guid: 2953b6e778c176c4d8408010d534f326, type: 3}
+  upgradeSound: {fileID: 0}

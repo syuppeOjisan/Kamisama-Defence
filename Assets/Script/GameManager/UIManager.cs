@@ -104,16 +104,38 @@ public class UIManager : MonoBehaviour
     public List<string> waterStationUnitPlacementSpeechesCharacter2;
     public List<string> waterStationUnitUpgradedSpeechesCharacter2;
 
-    // SlowUnit 用
-    public Sprite slowUnitDefaultPortraitCharacter1;
-    public Sprite slowUnitUpgradedPortraitCharacter1;
-    public List<string> slowUnitPlacementSpeechesCharacter1;
-    public List<string> slowUnitUpgradedSpeechesCharacter1;
+    // SlowUnit1 用
+    public Sprite slowUnit1DefaultPortraitCharacter1;
+    public Sprite slowUnit1UpgradedPortraitCharacter1;
+    public List<string> slowUnit1PlacementSpeechesCharacter1;
+    public List<string> slowUnit1UpgradedSpeechesCharacter1;
 
-    public Sprite slowUnitDefaultPortraitCharacter2;
-    public Sprite slowUnitUpgradedPortraitCharacter2;
-    public List<string> slowUnitPlacementSpeechesCharacter2;
-    public List<string> slowUnitUpgradedSpeechesCharacter2;
+    public Sprite slowUnit1DefaultPortraitCharacter2;
+    public Sprite slowUnit1UpgradedPortraitCharacter2;
+    public List<string> slowUnit1PlacementSpeechesCharacter2;
+    public List<string> slowUnit1UpgradedSpeechesCharacter2;
+
+    // SlowUnit2 用
+    public Sprite slowUnit2DefaultPortraitCharacter1;
+    public Sprite slowUnit2UpgradedPortraitCharacter1;
+    public List<string> slowUnit2PlacementSpeechesCharacter1;
+    public List<string> slowUnit2UpgradedSpeechesCharacter1;
+
+    public Sprite slowUnit2DefaultPortraitCharacter2;
+    public Sprite slowUnit2UpgradedPortraitCharacter2;
+    public List<string> slowUnit2PlacementSpeechesCharacter2;
+    public List<string> slowUnit2UpgradedSpeechesCharacter2;
+
+    // SlowUnit3 用
+    public Sprite slowUnit3DefaultPortraitCharacter1;
+    public Sprite slowUnit3UpgradedPortraitCharacter1;
+    public List<string> slowUnit3PlacementSpeechesCharacter1;
+    public List<string> slowUnit3UpgradedSpeechesCharacter1;
+
+    public Sprite slowUnit3DefaultPortraitCharacter2;
+    public Sprite slowUnit3UpgradedPortraitCharacter2;
+    public List<string> slowUnit3PlacementSpeechesCharacter2;
+    public List<string> slowUnit3UpgradedSpeechesCharacter2;
 
     private Sprite defaultPortrait;
     private Sprite stunnedPortrait;
@@ -434,34 +456,98 @@ public class UIManager : MonoBehaviour
         ResetDefaultTimer();
     }
 
-    public void SetSlowUnitPlacement()
+    public void SetSlowUnit1Placement()
     {
         int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
         if (selectedCharacter == 1)
         {
-            characterPortrait.sprite = slowUnitDefaultPortraitCharacter1;
-            SetRandomSpeech(slowUnitPlacementSpeechesCharacter1);
+            characterPortrait.sprite = slowUnit1DefaultPortraitCharacter1;
+            SetRandomSpeech(slowUnit1PlacementSpeechesCharacter1);
         }
         else if (selectedCharacter == 2)
         {
-            characterPortrait.sprite = slowUnitDefaultPortraitCharacter2;
-            SetRandomSpeech(slowUnitPlacementSpeechesCharacter2);
+            characterPortrait.sprite = slowUnit1DefaultPortraitCharacter2;
+            SetRandomSpeech(slowUnit1PlacementSpeechesCharacter2);
         }
         ResetDefaultTimer();
     }
 
-    public void SetSlowUnitUpgraded()
+    public void SetSlowUnit1Upgraded()
     {
         int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
         if (selectedCharacter == 1)
         {
-            characterPortrait.sprite = slowUnitUpgradedPortraitCharacter1;
-            SetRandomSpeech(slowUnitUpgradedSpeechesCharacter1);
+            characterPortrait.sprite = slowUnit1UpgradedPortraitCharacter1;
+            SetRandomSpeech(slowUnit1UpgradedSpeechesCharacter1);
         }
         else if (selectedCharacter == 2)
         {
-            characterPortrait.sprite = slowUnitUpgradedPortraitCharacter2;
-            SetRandomSpeech(slowUnitUpgradedSpeechesCharacter2);
+            characterPortrait.sprite = slowUnit1UpgradedPortraitCharacter2;
+            SetRandomSpeech(slowUnit1UpgradedSpeechesCharacter2);
+        }
+        ResetDefaultTimer();
+    }
+
+    public void SetSlowUnit2Placement()
+    {
+        int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
+        if (selectedCharacter == 1)
+        {
+            characterPortrait.sprite = slowUnit2DefaultPortraitCharacter1;
+            SetRandomSpeech(slowUnit2PlacementSpeechesCharacter1);
+        }
+        else if (selectedCharacter == 2)
+        {
+            characterPortrait.sprite = slowUnit2DefaultPortraitCharacter2;
+            SetRandomSpeech(slowUnit2PlacementSpeechesCharacter2);
+        }
+        ResetDefaultTimer();
+    }
+
+    public void SetSlowUnit2Upgraded()
+    {
+        int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
+        if (selectedCharacter == 1)
+        {
+            characterPortrait.sprite = slowUnit2UpgradedPortraitCharacter1;
+            SetRandomSpeech(slowUnit2UpgradedSpeechesCharacter1);
+        }
+        else if (selectedCharacter == 2)
+        {
+            characterPortrait.sprite = slowUnit2UpgradedPortraitCharacter2;
+            SetRandomSpeech(slowUnit2UpgradedSpeechesCharacter2);
+        }
+        ResetDefaultTimer();
+    }
+
+    public void SetSlowUnit3Placement()
+    {
+        int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
+        if (selectedCharacter == 1)
+        {
+            characterPortrait.sprite = slowUnit3DefaultPortraitCharacter1;
+            SetRandomSpeech(slowUnit3PlacementSpeechesCharacter1);
+        }
+        else if (selectedCharacter == 2)
+        {
+            characterPortrait.sprite = slowUnit3DefaultPortraitCharacter2;
+            SetRandomSpeech(slowUnit3PlacementSpeechesCharacter2);
+        }
+        ResetDefaultTimer();
+    }
+
+    public void SetSlowUnit3Upgraded()
+    {
+        int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
+        if (selectedCharacter == 1)
+        {
+            characterPortrait.sprite = slowUnit3UpgradedPortraitCharacter1;
+            SetRandomSpeech(slowUnit3UpgradedSpeechesCharacter1);
+        }
+        else if (selectedCharacter == 2)
+        {
+            characterPortrait.sprite = slowUnit3UpgradedPortraitCharacter2;
+            SetRandomSpeech(slowUnit3UpgradedSpeechesCharacter2);
         }
         ResetDefaultTimer();
     }

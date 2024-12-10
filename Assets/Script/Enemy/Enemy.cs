@@ -10,12 +10,14 @@ public class Enemy : MonoBehaviour
     private float currentHP;
 
     public float damage = 10f;
-    public float detectionRange = 15f; // 検知範囲
-    public float attackRange = 5f; // 攻撃範囲
-    public float attackDelay = 1.5f; // 攻撃の遅延時間
+    public float detectionRange = 15f;
+    public float attackRange = 5f;
+    public float attackDelay = 1.5f;
     private float lastAttackTime;
 
     public AudioClip deathSound;
+    public GameObject itemDropPrefab;
+    public float dropChance = 0.3f;
 
     public Image hpBarFill;
     public Image hpBarBackground;
@@ -32,7 +34,8 @@ public class Enemy : MonoBehaviour
     private bool isStunned = false;
     private float stunEndTime = 0f;
 
-    private Transform currentTarget; // 現在の追跡対象
+    private Transform currentTarget;
+    private bool isDead = false; // 敵が死亡したかどうかを管理するフラグ
 
     void Start()
     {
@@ -63,6 +66,8 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (isDead) return; // 死亡後の処理を停止
+
         if (isStunned)
         {
             if (Time.time >= stunEndTime)
@@ -87,16 +92,14 @@ public class Enemy : MonoBehaviour
         {
             agent.SetDestination(currentTarget.position);
 
-            // 攻撃範囲に入っているか、攻撃ディレイが経過しているかチェック
             if (Vector3.Distance(transform.position, currentTarget.position) <= attackRange && Time.time >= lastAttackTime + attackDelay)
             {
                 AttackTarget();
-                lastAttackTime = Time.time; // 攻撃タイマーをリセット
+                lastAttackTime = Time.time;
             }
         }
     }
 
-    // 最も近い対象を検出して追跡対象を更新
     void DetectClosestTarget()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, detectionRange);
@@ -141,6 +144,8 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (isDead) return; // 死亡済みの場合は処理しない
+
         if (other.CompareTag("Projectile"))
         {
             Projectile projectile = other.GetComponent<Projectile>();
@@ -154,6 +159,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (isDead) return; // 死亡済みの場合は処理しない
+
         currentHP += damage;
 
         if (!hpBarFill.enabled && !hpBarBackground.enabled)
@@ -181,6 +188,9 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        if (isDead) return; // 既に死亡している場合は処理しない
+        isDead = true; // 死亡フラグをセット
+
         PlayDeathSound();
 
         if (stageManager != null)
@@ -188,6 +198,7 @@ public class Enemy : MonoBehaviour
             stageManager.EnemyDefeated();
         }
 
+        DropItem(); // アイテムをドロップ
         Destroy(gameObject, 0.1f);
     }
 
@@ -204,15 +215,27 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void DropItem()
+    {
+        if (itemDropPrefab != null && Random.value <= dropChance)
+        {
+            Instantiate(itemDropPrefab, transform.position, Quaternion.identity);
+        }
+    }
+
     public void ApplySlow(float slowAmount, float duration)
     {
+        if (isDead) return; // 死亡済みの場合は処理しない
+
         agent.speed = originalMoveSpeed * (1f - slowAmount);
-        slowDuration = Mathf.Max(slowDuration, duration); // 効果時間を延長
+        slowDuration = Mathf.Max(slowDuration, duration);
         isSlowed = true;
     }
 
     public void ApplyStun(float duration)
     {
+        if (isDead) return; // 死亡済みの場合は処理しない
+
         if (!isStunned)
         {
             isStunned = true;

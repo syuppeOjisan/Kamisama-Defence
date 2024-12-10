@@ -14733,6 +14733,7 @@ GameObject:
   - component: {fileID: 1764919565304742635}
   - component: {fileID: 6801411776670823894}
   - component: {fileID: 6740950121973455915}
+  - component: {fileID: -3623144371402822564}
   m_Layer: 0
   m_Name: reimu
   m_TagString: Player
@@ -14840,6 +14841,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!81 &-3623144371402822564
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526723109095607117}
+  m_Enabled: 1
 --- !u!1 &5534300349263476761
 GameObject:
   m_ObjectHideFlags: 0

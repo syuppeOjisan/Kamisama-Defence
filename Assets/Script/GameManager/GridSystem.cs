@@ -22,6 +22,8 @@ public class GridSystem : MonoBehaviour
     [SerializeField]
     private string csvFileName = "unplaceableCells.csv"; // デフォルトCSV
 
+    public Camera miniMapCamera; // ミニマップカメラの参照
+
     public string CsvFileName
     {
         get { return csvFileName; }
@@ -238,6 +240,12 @@ public class GridSystem : MonoBehaviour
 
     void OnRenderObject()
     {
+        // ミニマップカメラからの描画を無視
+        if (Camera.current == miniMapCamera)
+        {
+            return;
+        }
+
         if (showGrid)
         {
             DrawGridLines();

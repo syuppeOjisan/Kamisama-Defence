@@ -10,7 +10,6 @@ public class FadeController : MonoBehaviour
 
     private void Awake()
     {
-        // フェード用のImageが設定されていない場合は自動で探す
         if (fadeImage == null)
         {
             fadeImage = GetComponentInChildren<Image>();
@@ -21,7 +20,7 @@ public class FadeController : MonoBehaviour
     }
 
     // フェードイン処理（画面を明るくする）
-    public IEnumerator FadeIn()
+    public IEnumerator FadeIn(System.Action onComplete = null)
     {
         float elapsedTime = 0f;
         Color color = fadeImage.color;
@@ -38,6 +37,8 @@ public class FadeController : MonoBehaviour
 
         color.a = 0f; // 完全に明るい状態に設定
         fadeImage.color = color;
+
+        onComplete?.Invoke(); // コールバックを実行
     }
 
     // フェードアウト処理（画面を暗くする）
@@ -59,7 +60,6 @@ public class FadeController : MonoBehaviour
         color.a = 1f; // 完全に暗い状態に設定
         fadeImage.color = color;
 
-        // シーンをロード
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName); // シーンをロード
     }
 }

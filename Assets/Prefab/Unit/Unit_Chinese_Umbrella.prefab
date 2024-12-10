@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3382980107602194452}
-  - component: {fileID: -6321318770826549630}
+  - component: {fileID: -8514908819694957722}
   m_Layer: 0
   m_Name: Unit_Chinese_Umbrella
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 424407053349011545}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6321318770826549630
+--- !u!114 &-8514908819694957722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,29 +42,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 2251246138356505684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ed08a49ff10d814ca0f5f2daa75ee9c, type: 3}
+  m_Script: {fileID: 11500000, guid: ebb53facdbff5da44a90e6f42b6a1e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slowEffectRange:
-  - 5
-  - 5
-  - 5
-  - 5
-  - 5
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   slowAmount:
-  - 0.5
-  - 0.5
-  - 0.5
-  - 0.5
-  - 0.5
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   upgradeCosts:
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   slowEffectSound: {fileID: 0}
-  upgradeSound: {fileID: 8300000, guid: 4bb4f5ee446ad474bbbb1d7fdb46df3a, type: 3}
+  upgradeSound: {fileID: 0}
 --- !u!1 &8830970261899206719
 GameObject:
   m_ObjectHideFlags: 0

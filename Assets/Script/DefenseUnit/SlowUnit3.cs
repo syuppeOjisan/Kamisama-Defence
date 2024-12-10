@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowUnit : MonoBehaviour
+public class SlowUnit3 : MonoBehaviour
 {
     public float[] slowEffectRange = new float[5];  // 各レベルの効果範囲
     public float[] slowAmount = new float[5];       // 各レベルの移動速度低下率
@@ -30,7 +30,7 @@ public class SlowUnit : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
         if (uiManager != null)
         {
-            uiManager.SetSlowUnitPlacement(); // 設置時の立ち絵とセリフを設定
+            uiManager.SetSlowUnit3Placement(); // 設置時の立ち絵とセリフを設定
         }
     }
 
@@ -103,7 +103,7 @@ public class SlowUnit : MonoBehaviour
             // UIManagerでアップグレード時の立ち絵とセリフを設定
             if (uiManager != null)
             {
-                uiManager.SetSlowUnitUpgraded();
+                uiManager.SetSlowUnit3Upgraded();
             }
 
             Debug.Log("SlowUnitがレベルアップしました: Lv" + currentLevel);
