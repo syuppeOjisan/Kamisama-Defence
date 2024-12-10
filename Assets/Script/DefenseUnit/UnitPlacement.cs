@@ -293,7 +293,6 @@ public class UnitPlacement : MonoBehaviour
         }
     }
 
-    // ユニットの選択を切り替える
     void HandleUnitSelection()
     {
         int totalUnits = unitPrefabs.Count;
@@ -306,6 +305,7 @@ public class UnitPlacement : MonoBehaviour
             {
                 selectedUnitIndex = totalUnits - 1; // 後ろにループ
             }
+            UpdateSlotUI(); // UI更新
         }
         // 2キーまたはRBボタンで次のユニットに切り替える
         else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.JoystickButton5))
@@ -315,9 +315,20 @@ public class UnitPlacement : MonoBehaviour
             {
                 selectedUnitIndex = 0; // 前にループ
             }
+            UpdateSlotUI(); // UI更新
         }
 
         Debug.Log("選択中のユニット: " + selectedUnitIndex);
+    }
+
+    // スロットUIの更新を呼び出す
+    void UpdateSlotUI()
+    {
+        StageUIManager stageUIManager = FindObjectOfType<StageUIManager>();
+        if (stageUIManager != null)
+        {
+            stageUIManager.UpdateSelectedUnit(selectedUnitIndex);
+        }
     }
 
     // プレイヤーの正面にポインタを更新するメソッド
