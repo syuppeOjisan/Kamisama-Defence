@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float knockbackForce = 5f; // ノックバックの強さ
     public float stunDuration = 2f; // スタンの持続時間
     public AudioClip stunSound; // スタン時の効果音
+    
+
 
     private Rigidbody rb;
     private bool isStunned = false;
@@ -18,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource audioSource;
     private UIManager uiManager; // UIManagerの参照
     private BoundaryController boundaryController; // 境界管理の参照
+    private bool isGamePaused = false;   // ポーズしているかどうか
+    private GameObject PauseScreen; // ポーズ画面
 
     void Start()
     {
@@ -37,6 +41,19 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("BoundaryControllerがシーンに存在しません");
         }
+
+        // ポーズ画面のオブジェクトを取得
+        PauseScreen = null;
+        PauseScreen = GameObject.Find("PauseScreen");
+        if(PauseScreen == null)
+        {
+            Debug.LogError("ポーズ画面が見つかりませんでした");
+        }
+        else
+        {
+            PauseScreen.SetActive(false);
+        }
+
     }
 
     void FixedUpdate()
@@ -58,6 +75,23 @@ public class PlayerMovement : MonoBehaviour
             }
 
             rb.MovePosition(newPosition);
+        }
+
+        // ゲームをポーズ
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(!isGamePaused)
+            {
+                isGamePaused = true;
+                PauseScreen.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else if(isGamePaused)
+            {
+                isGamePaused = false;
+                PauseScreen.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
 
