@@ -76,23 +76,6 @@ public class PlayerMovement : MonoBehaviour
 
             rb.MovePosition(newPosition);
         }
-
-        // ゲームをポーズ
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(!isGamePaused)
-            {
-                isGamePaused = true;
-                PauseScreen.SetActive(true);
-                Time.timeScale = 0;
-            }
-            else if(isGamePaused)
-            {
-                isGamePaused = false;
-                PauseScreen.SetActive(false);
-                Time.timeScale = 1;
-            }
-        }
     }
 
     void Update()
@@ -111,6 +94,24 @@ public class PlayerMovement : MonoBehaviour
         if (!isStunned)
         {
             RotateTowardsMouse();
+        }
+
+        // ゲームをポーズ
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Escが押されました");
+            if (!isGamePaused)
+            {
+                isGamePaused = true;
+                PauseScreen.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else if (isGamePaused)
+            {
+                isGamePaused = false;
+                PauseScreen.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
 
