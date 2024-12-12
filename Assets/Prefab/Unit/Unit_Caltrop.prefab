@@ -190,26 +190,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerLevel:
+  - 0.3
   - 0.5
-  - 0.6
-  - 0.6
-  - 0.6
-  effectRadiusPerLevel:
-  - 10
-  - 20
-  - 20
-  - 20
-  slowAmountPerLevel:
   - 0.8
+  - 1
+  - 1.5
+  effectRadiusPerLevel:
+  - 4.3
+  - 4.8
+  - 5
+  - 5
+  - 5
+  slowAmountPerLevel:
+  - 0.4
+  - 0.43
+  - 0.45
   - 0.5
-  - 0.5
-  - 0.5
-  - 0.5
+  - 0.6
   upgradeCosts:
-  - 1
-  - 1
-  - 1
-  - 4
-  - 4
+  - 45
+  - 5
+  - 8
+  - 15
+  - 20
   damageInterval: 0.5
   upgradeSound: {fileID: 8300000, guid: 4bb4f5ee446ad474bbbb1d7fdb46df3a, type: 3}

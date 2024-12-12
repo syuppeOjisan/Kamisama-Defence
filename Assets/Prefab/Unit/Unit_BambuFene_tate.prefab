@@ -1209,13 +1209,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerLevels:
-  - 1
-  - 3
-  - 3
-  - 3
-  - 3
+  - 8
+  - 1.5
+  - 1.5
+  - 1.5
+  - 1.5
   upgradeCosts:
-  - 100
+  - 30
   - 5
   - 5
   - 5

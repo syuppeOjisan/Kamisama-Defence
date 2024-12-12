@@ -153,23 +153,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage:
+  - 8
   - 10
-  - 10
-  - 10
-  - 10
-  - 10
+  - 15
+  - 20
+  - 30
   effectiveRange:
-  - 5
-  - 5
-  - 5
-  - 5
-  - 5
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
   upgradeCosts:
+  - 25
   - 10
-  - 10
-  - 10
-  - 10
-  - 10
+  - 13
+  - 15
+  - 20
   hitSound: {fileID: 0}
   upgradeSound: {fileID: 8300000, guid: 4bb4f5ee446ad474bbbb1d7fdb46df3a, type: 3}
 --- !u!65 &5180466836901421762
