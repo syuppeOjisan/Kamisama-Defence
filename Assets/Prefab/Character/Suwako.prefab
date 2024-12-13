@@ -2156,6 +2156,7 @@ MonoBehaviour:
   - {fileID: 9209263053062161210, guid: b76ec56368d503643a15c2a92b580f34, type: 3}
   - {fileID: 8156526602318455152, guid: 2dd88b1d47a616d499ed00164a2c4574, type: 3}
   - {fileID: 2251246138356505684, guid: 7b5c07657908eb646857da1e0aaa102c, type: 3}
+  - {fileID: 535992601250260729, guid: c80fa0e7083d2b64f9668f99c063385f, type: 3}
   selectedUnitIndex: 0
   placementPointerPrefab: {fileID: 4565730129134922708, guid: 3869664eed027b94d8bf2f61612c8315, type: 3}
   placementSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}

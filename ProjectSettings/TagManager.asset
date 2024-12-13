@@ -9,6 +9,7 @@ TagManager:
   - DefenseTarget
   - ShootingEnemy
   - Worshipper
+  - start
   layers:
   - Default
   - TransparentFX

@@ -89,7 +89,7 @@ public class UnitPlacement : MonoBehaviour
         BearTrapUnit bearTrapUnit = existingUnit.GetComponent<BearTrapUnit>();
         ShrineUnit shrineUnit = existingUnit.GetComponent<ShrineUnit>(); // ShrineUnitもチェック
         WaterStationUnit waterStationUnit = existingUnit.GetComponent<WaterStationUnit>(); // WaterStationUnitのチェック
-
+        Mahojin Mahojin = existingUnit.GetComponent<Mahojin>();//mahojinunitのチェック
         if (defenseUnit != null && stageManager.offeringPoints >= defenseUnit.GetUpgradeCost())
         {
             if (defenseUnit.UpgradeUnit())
@@ -162,6 +162,14 @@ public class UnitPlacement : MonoBehaviour
                 Debug.Log("WaterStationUnitがアップグレードされました。");
             }
         }
+        else if (Mahojin != null && stageManager.offeringPoints >= Mahojin.GetUpgradeCost())
+        {
+            if (Mahojin.UpgradeUnit())
+            {
+                stageManager.AddOfferingPoints(-Mahojin.GetUpgradeCost());
+                Debug.Log("Mahojinがアップグレードされました。");
+            }
+        }
         else
         {
             Debug.Log("アップグレード対象のユニットが見つからないか、またはお賽銭ポイントが不足しています。");
@@ -187,6 +195,7 @@ public class UnitPlacement : MonoBehaviour
         BearTrapUnit bearTrapUnit = unitPrefab.GetComponent<BearTrapUnit>();
         ShrineUnit shrineUnit = unitPrefab.GetComponent<ShrineUnit>(); // ShrineUnitもチェック
         WaterStationUnit waterStationUnit = unitPrefab.GetComponent<WaterStationUnit>(); // WaterStationUnitのチェック
+        Mahojin Mahojin = unitPrefab.GetComponent<Mahojin>();//mahojinunitのチェック
 
         float unitCost = 0f;
 
@@ -225,6 +234,10 @@ public class UnitPlacement : MonoBehaviour
         else if (waterStationUnit != null)
         {
             unitCost = waterStationUnit.upgradeCosts[0];
+        }
+        else if (Mahojin != null)
+        {
+            unitCost = Mahojin.upgradeCosts[0];
         }
 
         Vector3 forwardPosition = transform.position + transform.forward * 2f;
