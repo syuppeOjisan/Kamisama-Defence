@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f; // 通常の移動速度
@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float knockbackForce = 5f; // ノックバックの強さ
     public float stunDuration = 2f; // スタンの持続時間
     public AudioClip stunSound; // スタン時の効果音
+
+
 
     private Rigidbody rb;
     private bool isStunned = false;
@@ -18,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource audioSource;
     private UIManager uiManager; // UIManagerの参照
     private BoundaryController boundaryController; // 境界管理の参照
+    private bool isGamePaused = false;   // ポーズしているかどうか
+    private GameObject PauseScreen; // ポーズ画面
 
     void Start()
     {
@@ -37,6 +41,19 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("BoundaryControllerがシーンに存在しません");
         }
+
+        // ポーズ画面のオブジェクトを取得
+        PauseScreen = null;
+        PauseScreen = GameObject.Find("PauseScreen");
+        if (PauseScreen == null)
+        {
+            Debug.LogError("ポーズ画面が見つかりませんでした");
+        }
+        else
+        {
+            PauseScreen.SetActive(false);
+        }
+
     }
 
     void FixedUpdate()
@@ -46,9 +63,9 @@ public class PlayerMovement : MonoBehaviour
             // 移動処理
             float moveX = Input.GetAxis("Horizontal");
             float moveZ = Input.GetAxis("Vertical");
-            float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? dashSpeed : moveSpeed;
+            float currentSpeed = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton2)) ? dashSpeed : moveSpeed;
             Vector3 movement = new Vector3(moveX, 0, moveZ) * currentSpeed * Time.fixedDeltaTime;
-
+            
             Vector3 newPosition = transform.position + movement;
 
             // 境界内に位置を制限
@@ -77,6 +94,25 @@ public class PlayerMovement : MonoBehaviour
         if (!isStunned)
         {
             RotateTowardsMouse();
+        }
+
+
+
+        // ゲームをポーズ
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7))
+        {
+            if (!isGamePaused)
+            {
+                isGamePaused = true;
+                PauseScreen.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else if (isGamePaused)
+            {
+                isGamePaused = false;
+                PauseScreen.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
 
