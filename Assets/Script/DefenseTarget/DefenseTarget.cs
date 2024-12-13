@@ -12,6 +12,8 @@ public class DefenseTarget : MonoBehaviour
     public Image hpBarFill; // HPバーの「Fill」Image
     private StageManager stageManager; // StageManagerへの参照
 
+    private PrevSceneTracker tracker = new PrevSceneTracker();
+
     void Start()
     {
         // StageManagerへの参照を取得
@@ -54,6 +56,7 @@ public class DefenseTarget : MonoBehaviour
     void GameOver()
     {
         Debug.Log("ゲームオーバー！");
+        tracker.SetPrevSceneName(SceneManager.GetActiveScene().name); // 現在のシーン名を保存
         SceneManager.LoadScene("GameOverScene"); // ゲームオーバーシーンに遷移
     }
 }
