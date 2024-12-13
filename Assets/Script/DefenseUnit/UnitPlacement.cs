@@ -70,7 +70,8 @@ public class UnitPlacement : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        // ƒ†ƒjƒbƒg‚ð‰ñŽû
+        if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.JoystickButton3))
         {
             RemoveUnit();
         }

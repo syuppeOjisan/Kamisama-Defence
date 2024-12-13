@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f; // 通常の移動速度
@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float knockbackForce = 5f; // ノックバックの強さ
     public float stunDuration = 2f; // スタンの持続時間
     public AudioClip stunSound; // スタン時の効果音
-    
+
 
 
     private Rigidbody rb;
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         // ポーズ画面のオブジェクトを取得
         PauseScreen = null;
         PauseScreen = GameObject.Find("PauseScreen");
-        if(PauseScreen == null)
+        if (PauseScreen == null)
         {
             Debug.LogError("ポーズ画面が見つかりませんでした");
         }
@@ -63,9 +63,9 @@ public class PlayerMovement : MonoBehaviour
             // 移動処理
             float moveX = Input.GetAxis("Horizontal");
             float moveZ = Input.GetAxis("Vertical");
-            float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? dashSpeed : moveSpeed;
+            float currentSpeed = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton2)) ? dashSpeed : moveSpeed;
             Vector3 movement = new Vector3(moveX, 0, moveZ) * currentSpeed * Time.fixedDeltaTime;
-
+            
             Vector3 newPosition = transform.position + movement;
 
             // 境界内に位置を制限
@@ -96,10 +96,11 @@ public class PlayerMovement : MonoBehaviour
             RotateTowardsMouse();
         }
 
+
+
         // ゲームをポーズ
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7))
         {
-            Debug.Log("Escが押されました");
             if (!isGamePaused)
             {
                 isGamePaused = true;

@@ -66,7 +66,7 @@ public class UnitButtonPressed : MonoBehaviour
     {
         colorBlock.normalColor = color;
         colorBlock.pressedColor = color;
-        colorBlock.selectedColor = color;
+        colorBlock.selectedColor = Color.gray;
         colorBlock.colorMultiplier = 1.0f;
 
         color.a = 0.5f;
