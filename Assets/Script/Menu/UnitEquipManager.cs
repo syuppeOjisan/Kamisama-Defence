@@ -10,6 +10,7 @@ public class UnitEquipManager : MonoBehaviour
     public Toggle[] toggles;    // 使用するトグルボタン
     [Header("ボタンに対応したユニット")]
     public GameObject[] units;  // ユニットリスト
+    public Sprite[] unitIcons;  // 各ユニットに対応するアイコン画像
 
     [Header("UI関連")]
     public TextMeshProUGUI equipLimitText; // 残り装備可能数を表示するUI
@@ -17,6 +18,8 @@ public class UnitEquipManager : MonoBehaviour
 
     [HideInInspector]
     public static List<GameObject> equipUnits; // 装備したユニットのリスト
+    [HideInInspector]
+    public static List<Sprite> equipUnitIcons; // 装備したユニットのアイコンリスト
     public static bool isEquipSelected = false; // 装備を変更したかどうか
 
     private const int maxEquipLimit = 6; // 最大装備数
@@ -27,6 +30,7 @@ public class UnitEquipManager : MonoBehaviour
         if (equipUnits == null)
         {
             equipUnits = new List<GameObject>();
+            equipUnitIcons = new List<Sprite>();
         }
 
         // トグルにリスナーを追加してリアルタイム更新を有効に
@@ -45,12 +49,14 @@ public class UnitEquipManager : MonoBehaviour
     public void SetEquipUnits()
     {
         equipUnits.Clear(); // リストを更新するので既存内容をクリア
+        equipUnitIcons.Clear();
 
         for (int i = 0; i < toggles.Length; i++)
         {
             if (toggles[i].isOn)
             {
                 equipUnits.Add(units[i]);
+                equipUnitIcons.Add(unitIcons[i]); // アイコンも保存
             }
         }
 

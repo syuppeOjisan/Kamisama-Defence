@@ -2140,6 +2140,15 @@ MonoBehaviour:
   - {fileID: 8156526602318455152, guid: 2dd88b1d47a616d499ed00164a2c4574, type: 3}
   - {fileID: 4896297676002513353, guid: a53b0524b4b411441a820e095e9e8f6c, type: 3}
   - {fileID: 2251246138356505684, guid: 7b5c07657908eb646857da1e0aaa102c, type: 3}
+  unitIcons:
+  - {fileID: 21300000, guid: 6afb7fb08be00c7449450ff261d3ef77, type: 3}
+  - {fileID: 21300000, guid: 278a6483f52d595448b0188db3ea54a1, type: 3}
+  - {fileID: 21300000, guid: 453fdbbdbb236f8479dd5fdf8fbdf64f, type: 3}
+  - {fileID: 21300000, guid: 7df86b43aeac29840b751ed164554a65, type: 3}
+  - {fileID: 21300000, guid: 3175a371196a060488f75a8318592d20, type: 3}
+  - {fileID: 21300000, guid: e4ff934a0c8f5f544b9fdf11397d63a0, type: 3}
+  - {fileID: 21300000, guid: 37a6f9a45585ff74699fd3020ffe70a9, type: 3}
+  - {fileID: 21300000, guid: a80ab24bf51f34a409028556c00d03c2, type: 3}
   equipLimitText: {fileID: 793896534}
   errorMessage: {fileID: 1277145529}
 --- !u!1 &699391667
