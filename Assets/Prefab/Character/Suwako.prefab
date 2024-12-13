@@ -460,6 +460,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPrefabs:
   - {fileID: 6254240276320578089, guid: ad8ae172551301c41b8fb22532ff6c02, type: 3}
+  - {fileID: 5826180007522234385, guid: 11a00bdda80b7674585c67e46a66a370, type: 3}
+  - {fileID: 1282660936090805881, guid: b18b13f607463da4fae39ddec5054853, type: 3}
+  - {fileID: 885524789918608675, guid: 9f71f1a1ffd8b9c4cba7921938567515, type: 3}
+  - {fileID: 8061135098742812253, guid: b87898a89cfd6ef4c98d6fca7efbcaaa, type: 3}
   selectedUnitIndex: 0
   placementPointerPrefab: {fileID: 4565730129134922708, guid: 3869664eed027b94d8bf2f61612c8315, type: 3}
   placementSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
