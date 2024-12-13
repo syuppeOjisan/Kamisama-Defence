@@ -8,16 +8,21 @@ public class StageManager : MonoBehaviour
 {
     public GameObject character1Prefab;
     public GameObject character2Prefab;
+
+    public Transform playerSpawnPoint; // プレイヤースポーンポイント
     private GameObject spawnedCharacter;
 
     public float initialOfferingPoints = 100f;
     public float offeringPoints;
     public TMP_Text offeringPointsText;
 
+    public TMP_Text waveInfoText; // 新しいUIテキスト (ウェーブ情報)
+    public TMP_Text faithPointsText; // 信仰ポイントUI (ステージ内)
     public List<FiniteEnemySpawner> enemySpawners; // 複数のスポナー
     public List<int> totalEnemiesPerWave; // 各ウェーブの合計敵数
     private int enemiesDefeated = 0;
     private int currentWave = 0;
+    private int stageFaithPoints = 0; // ステージ内で取得した信仰ポイント
 
     public AudioClip waveCompleteSound;
     private AudioSource audioSource;
@@ -28,17 +33,34 @@ public class StageManager : MonoBehaviour
         UpdateOfferingPointsUI();
         audioSource = gameObject.AddComponent<AudioSource>();
 
+        SpawnPlayerCharacter();
+        SetupCameraFollow();
+        UpdateWaveInfoUI(); // 初期UIを更新
+        stageFaithPoints = 0;
+        UpdateFaithPointsUI();
+
+    }
+
+    void SpawnPlayerCharacter()
+    {
         int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
+
+        if (playerSpawnPoint == null)
+        {
+            Debug.LogError("プレイヤースポーンポイントが設定されていません！");
+            return;
+        }
+
+        Vector3 spawnPosition = playerSpawnPoint.position;
+
         if (selectedCharacter == 1)
         {
-            spawnedCharacter = Instantiate(character1Prefab, new Vector3(0, 0, 0), Quaternion.identity);
+            spawnedCharacter = Instantiate(character1Prefab, spawnPosition, Quaternion.identity);
         }
         else if (selectedCharacter == 2)
         {
-            spawnedCharacter = Instantiate(character2Prefab, new Vector3(0, 0, 0), Quaternion.identity);
+            spawnedCharacter = Instantiate(character2Prefab, spawnPosition, Quaternion.identity);
         }
-
-        SetupCameraFollow();
     }
 
     void SetupCameraFollow()
@@ -47,12 +69,6 @@ public class StageManager : MonoBehaviour
         if (mainCameraFollow != null)
         {
             mainCameraFollow.playerTransform = spawnedCharacter.transform;
-        }
-
-        MiniMapCameraFollow miniMapCameraFollow = FindObjectOfType<MiniMapCameraFollow>();
-        if (miniMapCameraFollow != null)
-        {
-            miniMapCameraFollow.player = spawnedCharacter.transform;
         }
     }
 
@@ -77,7 +93,21 @@ public class StageManager : MonoBehaviour
     {
         if (offeringPointsText != null)
         {
-            offeringPointsText.text = "Offering Points: " + offeringPoints.ToString();
+            offeringPointsText.text = "お賽銭： " + offeringPoints.ToString();
+        }
+    }
+
+    public void AddFaithPoints(int amount)
+    {
+        stageFaithPoints += amount;
+        UpdateFaithPointsUI();
+    }
+
+    private void UpdateFaithPointsUI()
+    {
+        if (faithPointsText != null)
+        {
+            faithPointsText.text = $"信仰： {stageFaithPoints}";
         }
     }
 
@@ -85,6 +115,8 @@ public class StageManager : MonoBehaviour
     {
         enemiesDefeated++;
         Debug.Log("敵を倒しました。現在の撃破数: " + enemiesDefeated);
+
+        UpdateWaveInfoUI(); // 敵撃破数を更新
 
         if (enemiesDefeated >= totalEnemiesPerWave[currentWave])
         {
@@ -103,6 +135,7 @@ public class StageManager : MonoBehaviour
                 spawner.StartNextWave();
             }
             PlayWaveCompleteSound();
+            UpdateWaveInfoUI(); // 新しいウェーブの情報を更新
         }
         else
         {
@@ -121,6 +154,22 @@ public class StageManager : MonoBehaviour
     void StageClear()
     {
         Debug.Log("ステージクリア！");
+        FaithPointManager.Instance.AddFaithPoints(stageFaithPoints);
         SceneManager.LoadScene("StageClearScene");
+    }
+
+    private void UpdateWaveInfoUI()
+    {
+        if (waveInfoText != null)
+        {
+            waveInfoText.text = $"Wave {currentWave + 1} : {enemiesDefeated}/{totalEnemiesPerWave[currentWave]}";
+        }
+    }
+
+    void GameOver()
+    {
+        stageFaithPoints = 0;
+        FaithPointManager.Instance.ResetFaithPoints();
+        SceneManager.LoadScene("GameOverScene");
     }
 }

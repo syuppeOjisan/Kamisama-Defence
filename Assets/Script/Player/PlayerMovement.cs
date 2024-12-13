@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float knockbackForce = 5f; // ノックバックの強さ
     public float stunDuration = 2f; // スタンの持続時間
     public AudioClip stunSound; // スタン時の効果音
+    
+
 
     private Rigidbody rb;
     private bool isStunned = false;
@@ -17,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     private float invincibleEndTime;
     private AudioSource audioSource;
     private UIManager uiManager; // UIManagerの参照
+    private BoundaryController boundaryController; // 境界管理の参照
+    private bool isGamePaused = false;   // ポーズしているかどうか
+    private GameObject PauseScreen; // ポーズ画面
 
     void Start()
     {
@@ -29,6 +34,26 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("UIManagerがシーンに存在しません");
         }
+
+        // BoundaryControllerの参照を取得
+        boundaryController = FindObjectOfType<BoundaryController>();
+        if (boundaryController == null)
+        {
+            Debug.LogError("BoundaryControllerがシーンに存在しません");
+        }
+
+        // ポーズ画面のオブジェクトを取得
+        PauseScreen = null;
+        PauseScreen = GameObject.Find("PauseScreen");
+        if(PauseScreen == null)
+        {
+            Debug.LogError("ポーズ画面が見つかりませんでした");
+        }
+        else
+        {
+            PauseScreen.SetActive(false);
+        }
+
     }
 
     void FixedUpdate()
@@ -40,7 +65,16 @@ public class PlayerMovement : MonoBehaviour
             float moveZ = Input.GetAxis("Vertical");
             float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? dashSpeed : moveSpeed;
             Vector3 movement = new Vector3(moveX, 0, moveZ) * currentSpeed * Time.fixedDeltaTime;
-            rb.MovePosition(transform.position + movement);
+
+            Vector3 newPosition = transform.position + movement;
+
+            // 境界内に位置を制限
+            if (boundaryController != null)
+            {
+                newPosition = boundaryController.ClampPosition(newPosition);
+            }
+
+            rb.MovePosition(newPosition);
         }
     }
 
@@ -60,6 +94,24 @@ public class PlayerMovement : MonoBehaviour
         if (!isStunned)
         {
             RotateTowardsMouse();
+        }
+
+        // ゲームをポーズ
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Escが押されました");
+            if (!isGamePaused)
+            {
+                isGamePaused = true;
+                PauseScreen.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else if (isGamePaused)
+            {
+                isGamePaused = false;
+                PauseScreen.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
 

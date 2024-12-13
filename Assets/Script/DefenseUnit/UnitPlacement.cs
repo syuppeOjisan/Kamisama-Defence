@@ -84,7 +84,9 @@ public class UnitPlacement : MonoBehaviour
         FenceUnit fenceUnit = existingUnit.GetComponent<FenceUnit>();
         CaltropUnit caltropUnit = existingUnit.GetComponent<CaltropUnit>();
         SpikeUnit spikeUnit = existingUnit.GetComponent<SpikeUnit>();
-        SlowUnit slowUnit = existingUnit.GetComponent<SlowUnit>();
+        SlowUnit1 slowUnit1 = existingUnit.GetComponent<SlowUnit1>();
+        SlowUnit2 slowUnit2 = existingUnit.GetComponent<SlowUnit2>();
+        SlowUnit3 slowUnit3 = existingUnit.GetComponent<SlowUnit3>();
         FlameTrapUnit flameTrapUnit = existingUnit.GetComponent<FlameTrapUnit>();
         BearTrapUnit bearTrapUnit = existingUnit.GetComponent<BearTrapUnit>();
         ShrineUnit shrineUnit = existingUnit.GetComponent<ShrineUnit>(); // ShrineUnitもチェック
@@ -122,12 +124,28 @@ public class UnitPlacement : MonoBehaviour
                 Debug.Log("SpikeUnitがアップグレードされました。");
             }
         }
-        else if (slowUnit != null && stageManager.offeringPoints >= slowUnit.GetUpgradeCost())
+        else if (slowUnit1 != null && stageManager.offeringPoints >= slowUnit1.GetUpgradeCost())
         {
-            if (slowUnit.UpgradeUnit())
+            if (slowUnit1.UpgradeUnit())
             {
-                stageManager.AddOfferingPoints(-slowUnit.GetUpgradeCost());
-                Debug.Log("SlowUnitがアップグレードされました。");
+                stageManager.AddOfferingPoints(-slowUnit1.GetUpgradeCost());
+                Debug.Log("SlowUnit1がアップグレードされました。");
+            }
+        }
+        else if (slowUnit2 != null && stageManager.offeringPoints >= slowUnit2.GetUpgradeCost())
+        {
+            if (slowUnit2.UpgradeUnit())
+            {
+                stageManager.AddOfferingPoints(-slowUnit2.GetUpgradeCost());
+                Debug.Log("SlowUnit2がアップグレードされました。");
+            }
+        }
+        else if (slowUnit3 != null && stageManager.offeringPoints >= slowUnit3.GetUpgradeCost())
+        {
+            if (slowUnit3.UpgradeUnit())
+            {
+                stageManager.AddOfferingPoints(-slowUnit3.GetUpgradeCost());
+                Debug.Log("SlowUnit3がアップグレードされました。");
             }
         }
         else if (flameTrapUnit != null && stageManager.offeringPoints >= flameTrapUnit.GetUpgradeCost())
@@ -182,7 +200,9 @@ public class UnitPlacement : MonoBehaviour
         FenceUnit fenceUnit = unitPrefab.GetComponent<FenceUnit>();
         CaltropUnit caltropUnit = unitPrefab.GetComponent<CaltropUnit>();
         SpikeUnit spikeUnit = unitPrefab.GetComponent<SpikeUnit>();
-        SlowUnit slowUnit = unitPrefab.GetComponent<SlowUnit>();
+        SlowUnit1 slowUnit1 = unitPrefab.GetComponent<SlowUnit1>();
+        SlowUnit2 slowUnit2 = unitPrefab.GetComponent<SlowUnit2>();
+        SlowUnit3 slowUnit3 = unitPrefab.GetComponent<SlowUnit3>();
         FlameTrapUnit flameTrapUnit = unitPrefab.GetComponent<FlameTrapUnit>();
         BearTrapUnit bearTrapUnit = unitPrefab.GetComponent<BearTrapUnit>();
         ShrineUnit shrineUnit = unitPrefab.GetComponent<ShrineUnit>(); // ShrineUnitもチェック
@@ -206,9 +226,17 @@ public class UnitPlacement : MonoBehaviour
         {
             unitCost = spikeUnit.upgradeCosts[0];
         }
-        else if (slowUnit != null)
+        else if (slowUnit1 != null)
         {
-            unitCost = slowUnit.upgradeCosts[0];
+            unitCost = slowUnit1.upgradeCosts[0];
+        }
+        else if (slowUnit2 != null)
+        {
+            unitCost = slowUnit2.upgradeCosts[0];
+        }
+        else if (slowUnit3 != null)
+        {
+            unitCost = slowUnit3.upgradeCosts[0];
         }
         else if (flameTrapUnit != null)
         {
@@ -265,7 +293,6 @@ public class UnitPlacement : MonoBehaviour
         }
     }
 
-    // ユニットの選択を切り替える
     void HandleUnitSelection()
     {
         int totalUnits = unitPrefabs.Count;
@@ -278,6 +305,7 @@ public class UnitPlacement : MonoBehaviour
             {
                 selectedUnitIndex = totalUnits - 1; // 後ろにループ
             }
+            UpdateSlotUI(); // UI更新
         }
         // 2キーまたはRBボタンで次のユニットに切り替える
         else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.JoystickButton5))
@@ -287,9 +315,20 @@ public class UnitPlacement : MonoBehaviour
             {
                 selectedUnitIndex = 0; // 前にループ
             }
+            UpdateSlotUI(); // UI更新
         }
 
         Debug.Log("選択中のユニット: " + selectedUnitIndex);
+    }
+
+    // スロットUIの更新を呼び出す
+    void UpdateSlotUI()
+    {
+        StageUIManager stageUIManager = FindObjectOfType<StageUIManager>();
+        if (stageUIManager != null)
+        {
+            stageUIManager.UpdateSelectedUnit(selectedUnitIndex);
+        }
     }
 
     // プレイヤーの正面にポインタを更新するメソッド

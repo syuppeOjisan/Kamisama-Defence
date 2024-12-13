@@ -9,68 +9,73 @@ public class StageSelectManager : MonoBehaviour
     public Button stage1Button;
     public Button stage2Button;
     public Button stage3Button;
+    public Button stage4Button;
+    public Button stage5Button;
+    public Button stage6Button;
+    public Button stage7Button;
+    public Button stage8Button;
+    public Button stage9Button;
+    public Button stage10Button;
     public Button returnToTitleButton; // タイトルに戻るボタン
     public Button pointAllocationButton; // 永続強化シーンへのボタン
 
     private FadeController fadeController;
+    private Button[] allButtons; // シーン内のすべてのボタン
 
     void Start()
     {
         // FadeControllerをシーン内から探す
         fadeController = FindObjectOfType<FadeController>();
 
+        // シーン内のすべてのボタンを取得
+        allButtons = FindObjectsOfType<Button>();
+
         // シーン開始時にフェードインを実行
         if (fadeController != null)
         {
-            StartCoroutine(fadeController.FadeIn());
+            SetButtonsInteractable(false); // フェード中はボタンを無効化
+            StartCoroutine(fadeController.FadeIn(() =>
+            {
+                SetButtonsInteractable(true); // フェードイン完了後にボタンを有効化
+            }));
         }
 
-        // 初期化：ステージ選択時はキャラクター選択を考慮しない
-        stage1Button.interactable = true;
-        stage2Button.interactable = true;
-        stage3Button.interactable = true;
-
         // ボタンのクリックイベントを設定
-        stage1Button.onClick.AddListener(SelectStage1);
-        stage2Button.onClick.AddListener(SelectStage2);
-        stage3Button.onClick.AddListener(SelectStage3);
+        stage1Button.onClick.AddListener(() => SelectStage(1));
+        stage2Button.onClick.AddListener(() => SelectStage(2));
+        stage3Button.onClick.AddListener(() => SelectStage(3));
+        stage4Button.onClick.AddListener(() => SelectStage(4));
+        stage5Button.onClick.AddListener(() => SelectStage(5));
+        stage6Button.onClick.AddListener(() => SelectStage(6));
+        stage7Button.onClick.AddListener(() => SelectStage(7));
+        stage8Button.onClick.AddListener(() => SelectStage(8));
+        stage9Button.onClick.AddListener(() => SelectStage(9));
+        stage10Button.onClick.AddListener(() => SelectStage(10));
         returnToTitleButton.onClick.AddListener(ReturnToTitle);
         pointAllocationButton.onClick.AddListener(GoToPointAllocation);
     }
 
-    // ステージ1を選択してキャラクターセレクトに移行
-    public void SelectStage1()
+    // ステージ選択してキャラクターセレクトに移行
+    public void SelectStage(int stageNumber)
     {
-        // ステージ1を選択し、PlayerPrefsに保存
-        PlayerPrefs.SetInt("SelectedStage", 1);
+        SetButtonsInteractable(false); // ボタンを無効化
+        PlayerPrefs.SetInt("SelectedStage", stageNumber);
 
-        // キャラクターセレクトシーンに遷移
-        SceneManager.LoadScene("CharacterSelectScene");
-    }
-
-    // ステージ2を選択してキャラクターセレクトに移行
-    public void SelectStage2()
-    {
-        // ステージ2を選択し、PlayerPrefsに保存
-        PlayerPrefs.SetInt("SelectedStage", 2);
-
-        // キャラクターセレクトシーンに遷移
-        SceneManager.LoadScene("CharacterSelectScene");
-    }
-
-    // ステージ3を選択してキャラクターセレクトに移行
-    public void SelectStage3()
-    {
-        // ステージ1を選択し、PlayerPrefsに保存
-        PlayerPrefs.SetInt("SelectedStage", 3);
-
-        // キャラクターセレクトシーンに遷移
-        SceneManager.LoadScene("CharacterSelectScene");
+        if (fadeController != null)
+        {
+            StartCoroutine(fadeController.FadeOutAndLoadScene("CharacterSelectScene"));
+        }
+        else
+        {
+            SceneManager.LoadScene("CharacterSelectScene");
+        }
     }
 
     // タイトルシーンに戻る
     public void ReturnToTitle()
     {
+        SetButtonsInteractable(false); // ボタンを無効化
+
         if (fadeController != null)
         {
             StartCoroutine(fadeController.FadeOutAndLoadScene("TitleScene"));
@@ -84,6 +89,8 @@ public class StageSelectManager : MonoBehaviour
     // 永続強化シーンに遷移する
     public void GoToPointAllocation()
     {
+        SetButtonsInteractable(false); // ボタンを無効化
+
         if (fadeController != null)
         {
             StartCoroutine(fadeController.FadeOutAndLoadScene("PointAllocationScene"));
@@ -91,6 +98,15 @@ public class StageSelectManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene("PointAllocationScene");
+        }
+    }
+
+    // ボタンの有効/無効を設定
+    private void SetButtonsInteractable(bool interactable)
+    {
+        foreach (Button button in allButtons)
+        {
+            button.interactable = interactable;
         }
     }
 }
