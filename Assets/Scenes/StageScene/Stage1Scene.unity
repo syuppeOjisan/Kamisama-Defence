@@ -7867,7 +7867,7 @@ MonoBehaviour:
   gridColor: {r: 1, g: 1, b: 1, a: 1}
   occupiedCellColor: {r: 1, g: 0, b: 0, a: 0.5882353}
   unplaceableCellColor: {r: 0, g: 0, b: 0, a: 1}
-  csvFileName: unplaceableCells_stage1.csv
+  csvFileName: unplaceableCells_stage1~4.csv
   miniMapCamera: {fileID: 0}
 --- !u!1 &2087193149
 GameObject:
