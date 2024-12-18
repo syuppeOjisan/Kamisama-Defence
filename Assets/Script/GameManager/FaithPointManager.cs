@@ -32,6 +32,19 @@ public class FaithPointManager : MonoBehaviour
         Debug.Log($"信仰ポイントを追加しました: {amount}. 合計: {totalFaithPoints}");
     }
 
+    public void DeductFaithPoints(int amount)
+    {
+        if (totalFaithPoints >= amount)
+        {
+            totalFaithPoints -= amount;
+            Debug.Log($"信仰ポイントを減少しました: {amount}. 合計: {totalFaithPoints}");
+        }
+        else
+        {
+            Debug.LogWarning("信仰ポイントが不足しています。");
+        }
+    }
+
     public void ResetFaithPoints()
     {
         totalFaithPoints = 0;

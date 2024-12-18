@@ -91,6 +91,8 @@ public class UnitPlacement : MonoBehaviour
         BearTrapUnit bearTrapUnit = existingUnit.GetComponent<BearTrapUnit>();
         ShrineUnit shrineUnit = existingUnit.GetComponent<ShrineUnit>(); // ShrineUnitもチェック
         WaterStationUnit waterStationUnit = existingUnit.GetComponent<WaterStationUnit>(); // WaterStationUnitのチェック
+        MagicCircleUnit magicCircleUnit = existingUnit.GetComponent<MagicCircleUnit>(); // MagicCircleUnitのチェック
+
 
         if (defenseUnit != null && stageManager.offeringPoints >= defenseUnit.GetUpgradeCost())
         {
@@ -180,6 +182,14 @@ public class UnitPlacement : MonoBehaviour
                 Debug.Log("WaterStationUnitがアップグレードされました。");
             }
         }
+        else if (magicCircleUnit != null && stageManager.offeringPoints >= magicCircleUnit.GetUpgradeCost())
+        {
+            if (magicCircleUnit.UpgradeUnit())
+            {
+                stageManager.AddOfferingPoints(-magicCircleUnit.GetUpgradeCost());
+                Debug.Log("MagicCircleUnitがアップグレードされました。");
+            }
+        }
         else
         {
             Debug.Log("アップグレード対象のユニットが見つからないか、またはお賽銭ポイントが不足しています。");
@@ -207,6 +217,7 @@ public class UnitPlacement : MonoBehaviour
         BearTrapUnit bearTrapUnit = unitPrefab.GetComponent<BearTrapUnit>();
         ShrineUnit shrineUnit = unitPrefab.GetComponent<ShrineUnit>(); // ShrineUnitもチェック
         WaterStationUnit waterStationUnit = unitPrefab.GetComponent<WaterStationUnit>(); // WaterStationUnitのチェック
+        MagicCircleUnit magicCircleUnit = unitPrefab.GetComponent<MagicCircleUnit>(); // MagicCircleUnitのチェック
 
         float unitCost = 0f;
 
@@ -253,6 +264,10 @@ public class UnitPlacement : MonoBehaviour
         else if (waterStationUnit != null)
         {
             unitCost = waterStationUnit.upgradeCosts[0];
+        }
+        else if (magicCircleUnit != null)
+        {
+            unitCost = magicCircleUnit.upgradeCosts[0];
         }
 
         Vector3 forwardPosition = transform.position + transform.forward * 2f;

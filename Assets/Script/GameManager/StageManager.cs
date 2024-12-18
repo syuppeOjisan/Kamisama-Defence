@@ -93,7 +93,7 @@ public class StageManager : MonoBehaviour
     {
         if (offeringPointsText != null)
         {
-            offeringPointsText.text = "お賽銭: " + offeringPoints.ToString();
+            offeringPointsText.text = "お賽銭： " + offeringPoints.ToString();
         }
     }
 
@@ -107,7 +107,7 @@ public class StageManager : MonoBehaviour
     {
         if (faithPointsText != null)
         {
-            faithPointsText.text = $"信仰ポイント: {stageFaithPoints}";
+            faithPointsText.text = $"信仰： {stageFaithPoints}";
         }
     }
 

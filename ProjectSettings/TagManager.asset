@@ -10,6 +10,7 @@ TagManager:
   - ShootingEnemy
   - Worshipper
   - Path
+  - Warp
   layers:
   - Default
   - TransparentFX

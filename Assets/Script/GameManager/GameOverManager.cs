@@ -10,17 +10,20 @@ public class GameOverManager : MonoBehaviour
     {
         // 最後にプレイしていたステージ番号を取得
         int lastPlayedStage = PlayerPrefs.GetInt("SelectedStage", 1); // デフォルトはステージ1
-        int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter", 1); // デフォルトはキャラクター1
 
-        // ステージデータとゲームデータをリセット
+        // ステージデータをリセット
         ResetStageData();
 
-        // 選択したキャラクターとステージを保持したまま再スタート
-        if (lastPlayedStage == 1)
+        // ステージ番号に基づいて正しいシーンをロード
+        string stageSceneName = $"Stage{lastPlayedStage}Scene";
+        if (Application.CanStreamedLevelBeLoaded(stageSceneName)) // シーンが存在するか確認
         {
-            SceneManager.LoadScene("Stage1Scene");
+            SceneManager.LoadScene(stageSceneName);
         }
-        // 他のステージを追加する場合はここに追加
+        else
+        {
+            Debug.LogError($"指定されたステージシーンが見つかりません: {stageSceneName}");
+        }
     }
 
     // ステージデータをリセットするメソッド
@@ -29,8 +32,8 @@ public class GameOverManager : MonoBehaviour
         // お賽銭ポイントのリセット
         PlayerPrefs.SetFloat("OfferingPoints", 0);
 
-        // ここで他のリセットが必要なデータをリセットする
-        // 例えば、ユニット配置や敵・参拝客の情報をリセットする場合は、シーン再読み込み時に初期化されるようにする
+        // 他のリセット処理を追加可能
+        // 例: リセットが必要なゲーム状態やカスタムデータ
     }
 
     // ステージセレクトシーンに戻るボタン

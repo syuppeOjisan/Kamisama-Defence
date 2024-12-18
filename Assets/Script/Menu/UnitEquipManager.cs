@@ -95,7 +95,7 @@ public class UnitEquipManager : MonoBehaviour
         }
         else
         {
-            equipLimitText.text = "これ以上は装備できないよ！";
+            equipLimitText.text = "装備上限です";
             equipLimitText.color = Color.red;
 
             EnableToggles(false); // トグルを無効化

@@ -131,11 +131,11 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4651757755898024501, guid: 610772c123b1b6946a094d1ce7e402b9, type: 3}
   firePoint: {fileID: 1966644144451888242}
   fireRates:
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
   projectileSpeeds:
   - 5
   - 5
@@ -143,22 +143,22 @@ MonoBehaviour:
   - 5
   - 5
   damages:
-  - 1
-  - 2
-  - 3
-  - 4
+  - 5
+  - 5
+  - 5
+  - 5
   - 5
   ranges:
-  - 10
-  - 10
-  - 10
-  - 10
-  - 10
+  - 11
+  - 11
+  - 11
+  - 11
+  - 11
   upgradeCosts:
-  - 100
+  - 3
+  - 5
   - 10
   - 15
-  - 20
   - 20
   shootSound: {fileID: 8300000, guid: 2953b6e778c176c4d8408010d534f326, type: 3}
   upgradeSound: {fileID: 8300000, guid: 4bb4f5ee446ad474bbbb1d7fdb46df3a, type: 3}

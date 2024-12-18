@@ -137,6 +137,17 @@ public class UIManager : MonoBehaviour
     public List<string> slowUnit3PlacementSpeechesCharacter2;
     public List<string> slowUnit3UpgradedSpeechesCharacter2;
 
+    // MagicCircleUnit —p
+    public Sprite MagicCircleUnitDefaultPortraitCharacter1;
+    public Sprite MagicCircleUnitUpgradedPortraitCharacter1;
+    public List<string> MagicCircleUnitPlacementSpeechesCharacter1;
+    public List<string> MagicCircleUnitUpgradedSpeechesCharacter1;
+
+    public Sprite MagicCircleUnitDefaultPortraitCharacter2;
+    public Sprite MagicCircleUnitUpgradedPortraitCharacter2;
+    public List<string> MagicCircleUnitPlacementSpeechesCharacter2;
+    public List<string> MagicCircleUnitUpgradedSpeechesCharacter2;
+
     private Sprite defaultPortrait;
     private Sprite stunnedPortrait;
     private List<string> stunnedSpeeches;
@@ -548,6 +559,38 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = slowUnit3UpgradedPortraitCharacter2;
             SetRandomSpeech(slowUnit3UpgradedSpeechesCharacter2);
+        }
+        ResetDefaultTimer();
+    }
+
+    public void SetMagicCircleUnitPlacement()
+    {
+        int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
+        if (selectedCharacter == 1)
+        {
+            characterPortrait.sprite = MagicCircleUnitDefaultPortraitCharacter1;
+            SetRandomSpeech(MagicCircleUnitPlacementSpeechesCharacter1);
+        }
+        else if (selectedCharacter == 2)
+        {
+            characterPortrait.sprite = MagicCircleUnitDefaultPortraitCharacter2;
+            SetRandomSpeech(MagicCircleUnitPlacementSpeechesCharacter2);
+        }
+        ResetDefaultTimer();
+    }
+
+    public void SetMagicCircleUnitUpgraded()
+    {
+        int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter");
+        if (selectedCharacter == 1)
+        {
+            characterPortrait.sprite = MagicCircleUnitUpgradedPortraitCharacter1;
+            SetRandomSpeech(MagicCircleUnitUpgradedSpeechesCharacter1);
+        }
+        else if (selectedCharacter == 2)
+        {
+            characterPortrait.sprite = MagicCircleUnitUpgradedPortraitCharacter2;
+            SetRandomSpeech(MagicCircleUnitUpgradedSpeechesCharacter2);
         }
         ResetDefaultTimer();
     }
