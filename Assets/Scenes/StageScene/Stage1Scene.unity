@@ -11647,7 +11647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 8109130046698225332, guid: 3ae216d4b585939459a8beaeb3860636, type: 3}
+  - {fileID: 8109130046698225332, guid: eab376c951d9666428a41e51e98819b6, type: 3}
   spawnPoints:
   - {fileID: 4590043487144583253}
   enemiesPerWave: 05000000070000000a000000
@@ -13157,7 +13157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 8109130046698225332, guid: 3ae216d4b585939459a8beaeb3860636, type: 3}
+  - {fileID: 8109130046698225332, guid: eab376c951d9666428a41e51e98819b6, type: 3}
   spawnPoints:
   - {fileID: 2508651052443238852}
   enemiesPerWave: 05000000080000000a000000

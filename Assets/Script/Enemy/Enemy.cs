@@ -22,6 +22,9 @@ public class Enemy : MonoBehaviour
     public Image hpBarFill;
     public Image hpBarBackground;
 
+    public bool isAnimated = true;
+    public Animator animator = null;    // アニメーション制御
+
     private NavMeshAgent agent;
     private AudioSource audioSource;
     private Transform shrineTarget;
@@ -61,6 +64,11 @@ public class Enemy : MonoBehaviour
         if (stageManager == null)
         {
             Debug.LogError("StageManagerがシーン内に存在しません。");
+        }
+
+        if(animator == null && isAnimated)
+        {
+            Debug.LogError("アニメーターがセットされていません");
         }
     }
 
@@ -130,6 +138,9 @@ public class Enemy : MonoBehaviour
             if (worshipper != null)
             {
                 worshipper.TakeDamage(damage);
+                
+                if(isAnimated)
+                animator.SetTrigger("Attack");
             }
         }
         else if (currentTarget.CompareTag("DefenseTarget"))
@@ -138,6 +149,9 @@ public class Enemy : MonoBehaviour
             if (defenseTarget != null)
             {
                 defenseTarget.TakeDamage(damage);
+
+                if(isAnimated)
+                animator.SetTrigger("Attack");
             }
         }
     }
