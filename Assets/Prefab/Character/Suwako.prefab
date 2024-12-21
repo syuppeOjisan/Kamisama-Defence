@@ -476,6 +476,7 @@ MonoBehaviour:
   selectedUnitIndex: 0
   placementPointerPrefab: {fileID: 4565730129134922708, guid: 3869664eed027b94d8bf2f61612c8315, type: 3}
   placementSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  caltrapSound: {fileID: 8300000, guid: 86ed65f6da68a90499dcdb88fa0560de, type: 3}
   removalSound: {fileID: 8300000, guid: 263e17f692fe15544854c47b0f3cf0e2, type: 3}
   animator: {fileID: 5713986148140349251}
 --- !u!81 &632087732056268203

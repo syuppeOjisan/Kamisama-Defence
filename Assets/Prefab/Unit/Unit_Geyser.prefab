@@ -75,7 +75,7 @@ MonoBehaviour:
   - 15
   - 18
   - 20
-  contactSound: {fileID: 0}
+  contactSound: {fileID: 8300000, guid: c3f62d3dfc5c36c44a2854a8fd17ab90, type: 3}
   upgradeSound: {fileID: 8300000, guid: 4bb4f5ee446ad474bbbb1d7fdb46df3a, type: 3}
 --- !u!1 &3962094449257804500
 GameObject:

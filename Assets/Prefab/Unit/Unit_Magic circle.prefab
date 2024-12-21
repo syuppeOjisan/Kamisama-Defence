@@ -146,5 +146,5 @@ MonoBehaviour:
   - 1
   - 1
   - 1
-  warpSound: {fileID: 0}
+  warpSound: {fileID: 8300000, guid: 4489d8aa107822c41a583a567b12f5e3, type: 3}
   upgradeSound: {fileID: 8300000, guid: 4bb4f5ee446ad474bbbb1d7fdb46df3a, type: 3}

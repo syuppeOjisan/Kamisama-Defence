@@ -14684,7 +14684,7 @@ MonoBehaviour:
   - {fileID: 3237590247317677669}
   - {fileID: 2974243166303788383}
   totalEnemiesPerWave: 0a0000000f00000014000000
-  waveCompleteSound: {fileID: 8300000, guid: 3ca19c3b1309eb44cb44e1f74dd89eb8, type: 3}
+  waveCompleteSound: {fileID: 8300000, guid: 7fa79926a03cb074cba1b4fdbe4713af, type: 3}
 --- !u!1001 &3944659548220390134
 PrefabInstance:
   m_ObjectHideFlags: 0

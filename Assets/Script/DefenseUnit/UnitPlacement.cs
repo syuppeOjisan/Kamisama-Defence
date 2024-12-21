@@ -8,6 +8,7 @@ public class UnitPlacement : MonoBehaviour
     public int selectedUnitIndex = 0;
     public GameObject placementPointerPrefab;
     public AudioClip placementSound;
+    public AudioClip caltrapSound;
     public AudioClip removalSound;
     public Animator animator = null;  // アニメーション制御
 
@@ -308,8 +309,17 @@ public class UnitPlacement : MonoBehaviour
         {
             gridSystem.PlaceUnit(gridPosition, unitPrefab);
             stageManager.AddOfferingPoints(-unitCost);
-            PlaySound(placementSound);
             
+            // まきびし設置のときだけ専用のSEを流す
+            if(unitPrefabs[selectedUnitIndex].gameObject.name.Contains("Caltrop") && caltrapSound != null)
+            {
+                PlaySound(caltrapSound);
+            }
+            else 
+            {
+                PlaySound(placementSound);
+            }
+
             animator.SetTrigger("UnitPlase");   // ユニット設置のモーション
 
 

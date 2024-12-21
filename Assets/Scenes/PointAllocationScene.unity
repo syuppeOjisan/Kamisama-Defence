@@ -315,7 +315,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 4896297676002513353, guid: a53b0524b4b411441a820e095e9e8f6c, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0
@@ -535,7 +535,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 8901543840918695278, guid: e8feab53caf4838459d5adfd04e1961c, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 6254240276320578089, guid: ad8ae172551301c41b8fb22532ff6c02, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0.02
   projectileSpeedIncrease: 0.02
   damageIncrease: 0.05
@@ -1563,7 +1563,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 4473538086355658962, guid: 243b767eaf9947b499949457c01b9d95, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0
@@ -2796,7 +2796,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 2251246138356505684, guid: 7b5c07657908eb646857da1e0aaa102c, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0
@@ -4966,7 +4966,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 5546831959213874402, guid: b358a73c60843e0459af9a29314f6c48, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0
@@ -5261,7 +5261,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 8262517033868505685, guid: 12f091e9fecd0374c88583f2cdc5f052, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0
@@ -6791,7 +6791,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 597276099973833205, guid: 59a8085b83c1d594a8d9294bc5ad452e, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0
@@ -7624,7 +7624,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 4209371180941921508, guid: 4c4dc1ffa5860f9409d62865650fef20, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0
@@ -7978,7 +7978,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 4315140225467369452, guid: dae323b621ffe294ab9b0e7968e1284c, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0
@@ -8198,7 +8198,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 1048353368315829938, guid: ce4db38f6296d0149b6241aed55ee8b8, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0
@@ -9035,7 +9035,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 8156526602318455152, guid: 2dd88b1d47a616d499ed00164a2c4574, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0
@@ -10108,7 +10108,7 @@ MonoBehaviour:
   faithPointsText: {fileID: 339529582}
   targetPrefab: {fileID: 5114451453470948877, guid: 65ad4b9ff76dff640a8077df76aa5bdd, type: 3}
   successSound: {fileID: 8300000, guid: 2b24b1894a61e504dadd737bc31e30a0, type: 3}
-  failureSound: {fileID: 8300000, guid: 2fdb3d931a591454b9d4232851fed5a8, type: 3}
+  failureSound: {fileID: 8300000, guid: af27daf9c680b5141b9a662e4505e35f, type: 3}
   fireRateIncrease: 0
   projectileSpeedIncrease: 0
   damageIncrease: 0

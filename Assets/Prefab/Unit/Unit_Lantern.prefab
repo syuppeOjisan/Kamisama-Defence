@@ -160,5 +160,5 @@ MonoBehaviour:
   - 10
   - 15
   - 20
-  shootSound: {fileID: 8300000, guid: 2953b6e778c176c4d8408010d534f326, type: 3}
+  shootSound: {fileID: 8300000, guid: d2a8b309dfcdd524288a23fda22e367a, type: 3}
   upgradeSound: {fileID: 8300000, guid: 4bb4f5ee446ad474bbbb1d7fdb46df3a, type: 3}
