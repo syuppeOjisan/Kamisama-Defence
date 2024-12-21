@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f; // 通常の移動速度
@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public float knockbackForce = 5f; // ノックバックの強さ
     public float stunDuration = 2f; // スタンの持続時間
     public AudioClip stunSound; // スタン時の効果音
-
-
 
     private Rigidbody rb;
     private bool isStunned = false;
@@ -20,8 +18,9 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource audioSource;
     private UIManager uiManager; // UIManagerの参照
     private BoundaryController boundaryController; // 境界管理の参照
-    private bool isGamePaused = false;   // ポーズしているかどうか
-    private GameObject PauseScreen; // ポーズ画面
+
+    private Vector2 lastMousePosition;
+    private bool isUsingMouseInput = false;
 
     void Start()
     {
@@ -41,19 +40,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("BoundaryControllerがシーンに存在しません");
         }
-
-        // ポーズ画面のオブジェクトを取得
-        PauseScreen = null;
-        PauseScreen = GameObject.Find("PauseScreen");
-        if (PauseScreen == null)
-        {
-            Debug.LogError("ポーズ画面が見つかりませんでした");
-        }
-        else
-        {
-            PauseScreen.SetActive(false);
-        }
-
     }
 
     void FixedUpdate()
@@ -63,9 +49,11 @@ public class PlayerMovement : MonoBehaviour
             // 移動処理
             float moveX = Input.GetAxis("Horizontal");
             float moveZ = Input.GetAxis("Vertical");
-            float currentSpeed = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton2)) ? dashSpeed : moveSpeed;
+
+            // ダッシュ判定（XボタンまたはShiftキー）
+            float currentSpeed = (Input.GetButton("Dash") || Input.GetKey(KeyCode.LeftShift)) ? dashSpeed : moveSpeed;
             Vector3 movement = new Vector3(moveX, 0, moveZ) * currentSpeed * Time.fixedDeltaTime;
-            
+
             Vector3 newPosition = transform.position + movement;
 
             // 境界内に位置を制限
@@ -93,26 +81,32 @@ public class PlayerMovement : MonoBehaviour
         // スタンしていない場合のみ方向転換可能
         if (!isStunned)
         {
-            RotateTowardsMouse();
+            HandleRotation();
+        }
+    }
+
+    void HandleRotation()
+    {
+        Vector2 rightStickInput = new Vector2(Input.GetAxis("RightStickHorizontal"), Input.GetAxis("RightStickVertical"));
+        bool isRightStickActive = rightStickInput.sqrMagnitude > 0.01f;
+
+        if (Input.mousePosition != (Vector3)lastMousePosition)
+        {
+            isUsingMouseInput = true;
+            lastMousePosition = Input.mousePosition;
+        }
+        else if (isRightStickActive)
+        {
+            isUsingMouseInput = false;
         }
 
-
-
-        // ゲームをポーズ
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7))
+        if (isUsingMouseInput)
         {
-            if (!isGamePaused)
-            {
-                isGamePaused = true;
-                PauseScreen.SetActive(true);
-                Time.timeScale = 0;
-            }
-            else if (isGamePaused)
-            {
-                isGamePaused = false;
-                PauseScreen.SetActive(false);
-                Time.timeScale = 1;
-            }
+            RotateTowardsMouse();
+        }
+        else if (isRightStickActive)
+        {
+            RotateTowardsRightStick(rightStickInput);
         }
     }
 
@@ -121,11 +115,21 @@ public class PlayerMovement : MonoBehaviour
         Plane playerPlane = new Plane(Vector3.up, transform.position);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        float hitDist = 0.0f;
-        if (playerPlane.Raycast(ray, out hitDist))
+        if (playerPlane.Raycast(ray, out float hitDist))
         {
             Vector3 targetPoint = ray.GetPoint(hitDist);
             Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
+            rb.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime));
+        }
+    }
+
+    void RotateTowardsRightStick(Vector2 rightStickInput)
+    {
+        // Y軸入力を反転
+        Vector3 direction = new Vector3(rightStickInput.x, 0, -rightStickInput.y);
+        if (direction.sqrMagnitude > 0.01f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
             rb.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime));
         }
     }

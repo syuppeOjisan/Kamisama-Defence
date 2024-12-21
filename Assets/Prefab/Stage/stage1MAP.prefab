@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,7 +168,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3141,7 +3141,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3246,7 +3246,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3330,7 +3330,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4811,7 +4811,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4917,7 +4917,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5023,7 +5023,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5130,7 +5130,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5879,3 +5879,4 @@ MonoBehaviour:
   occupiedCellColor: {r: 1, g: 0, b: 0, a: 0.5882353}
   unplaceableCellColor: {r: 0, g: 0, b: 0, a: 1}
   csvFileName: unplaceableCells_stage1.csv
+  miniMapCamera: {fileID: 0}

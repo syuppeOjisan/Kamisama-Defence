@@ -30,7 +30,7 @@ public class GridSystem : MonoBehaviour
         set
         {
             csvFileName = value;
-            LoadUnplaceableCellsFromCSV(); // CSVファイルを再読み込み
+            Debug.Log($"CSVファイル名が設定されました: {csvFileName}");
         }
     }
 
@@ -38,6 +38,9 @@ public class GridSystem : MonoBehaviour
     {
         InitializeGrid();
         CreateLineMaterial();
+
+        // CSV読み込みを明示的に呼び出す
+        LoadUnplaceableCellsFromCSV();
     }
 
     public void InitializeGrid()

@@ -16,6 +16,12 @@ public class UnitPlacement : MonoBehaviour
     private AudioSource audioSource;
     private StageManager stageManager;
 
+    private int shrineUnitCount = 0;       // ShrineUnitの設置数
+    private int waterStationUnitCount = 0; // WaterStationUnitの設置数
+
+    private const int MAX_SHRINE_UNITS = 1;       // ShrineUnitの最大設置数
+    private const int MAX_WATER_STATION_UNITS = 3; // WaterStationUnitの最大設置数
+
     void Start()
     {
         // GridSystemをステージ内から検索
@@ -55,26 +61,33 @@ public class UnitPlacement : MonoBehaviour
         HandleUnitSelection();
         UpdatePointerPosition();
 
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton1) && canPlaceUnit)
+        // ユニット設置（RT / Eキー）
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetAxis("RT") > 0.5f) && canPlaceUnit)
+        {
+            Debug.Log("ユニット設置: RT / Eキー");
+            PlaceUnit();
+        }
+
+        // ユニット強化（Aボタン / Qキー）
+        if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("A")) && canPlaceUnit)
         {
             Vector3 forwardPosition = transform.position + transform.forward * 2f;
             Vector3 gridPosition = gridSystem.GetGridPosition(forwardPosition);
-
             if (gridSystem.IsOccupied(gridPosition))
             {
+                Debug.Log("ユニット強化: Aボタン / Qキー");
                 UpgradeUnitAt(gridPosition);
-            }
-            else
-            {
-                PlaceUnit();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        // ユニット削除（LT / Rキー）
+        if ((Input.GetKeyDown(KeyCode.R) || Input.GetAxis("LT") > 0.5f))
         {
+            Debug.Log("ユニット削除: LT / Rキー");
             RemoveUnit();
         }
     }
+
 
     // ユニットのアップグレード処理
     void UpgradeUnitAt(Vector3 gridPosition)
@@ -92,7 +105,6 @@ public class UnitPlacement : MonoBehaviour
         ShrineUnit shrineUnit = existingUnit.GetComponent<ShrineUnit>(); // ShrineUnitもチェック
         WaterStationUnit waterStationUnit = existingUnit.GetComponent<WaterStationUnit>(); // WaterStationUnitのチェック
         MagicCircleUnit magicCircleUnit = existingUnit.GetComponent<MagicCircleUnit>(); // MagicCircleUnitのチェック
-
 
         if (defenseUnit != null && stageManager.offeringPoints >= defenseUnit.GetUpgradeCost())
         {
@@ -259,16 +271,27 @@ public class UnitPlacement : MonoBehaviour
         }
         else if (shrineUnit != null)
         {
+            if (shrineUnitCount >= MAX_SHRINE_UNITS)
+            {
+                Debug.Log("ShrineUnitの設置上限に達しています。");
+                return;
+            }
             unitCost = shrineUnit.upgradeCosts[0];
         }
         else if (waterStationUnit != null)
         {
+            if (waterStationUnitCount >= MAX_WATER_STATION_UNITS)
+            {
+                Debug.Log("WaterStationUnitの設置上限に達しています。");
+                return;
+            }
             unitCost = waterStationUnit.upgradeCosts[0];
         }
         else if (magicCircleUnit != null)
         {
             unitCost = magicCircleUnit.upgradeCosts[0];
         }
+
 
         Vector3 forwardPosition = transform.position + transform.forward * 2f;
         Vector3 gridPosition = gridSystem.GetGridPosition(forwardPosition);
@@ -278,6 +301,10 @@ public class UnitPlacement : MonoBehaviour
             gridSystem.PlaceUnit(gridPosition, unitPrefab);
             stageManager.AddOfferingPoints(-unitCost);
             PlaySound(placementSound);
+
+            // 設置数カウント
+            if (shrineUnit != null) shrineUnitCount++;
+            else if (waterStationUnit != null) waterStationUnitCount++;
         }
         else
         {
@@ -292,11 +319,16 @@ public class UnitPlacement : MonoBehaviour
         Vector3 forwardPosition = transform.position + transform.forward * 2f;
         Vector3 gridPosition = gridSystem.GetGridPosition(forwardPosition);
 
-        // GridSystemのRemoveUnitメソッドを呼び出してユニットを削除
-        gridSystem.RemoveUnit(gridPosition);
+        GameObject removedUnit = gridSystem.GetUnitAt(gridPosition);
+        if (removedUnit != null)
+        {
+            if (removedUnit.GetComponent<ShrineUnit>() != null) shrineUnitCount--;
+            if (removedUnit.GetComponent<WaterStationUnit>() != null) waterStationUnitCount--;
 
-        PlaySound(removalSound); // ユニット削除時の効果音
-        Debug.Log("ユニットが削除されました。");
+            gridSystem.RemoveUnit(gridPosition);
+            PlaySound(removalSound);
+            Debug.Log("ユニットが削除されました。");
+        }
     }
 
     // 効果音再生

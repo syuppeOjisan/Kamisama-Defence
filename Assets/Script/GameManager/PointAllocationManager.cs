@@ -20,6 +20,11 @@ public class PointAllocationManager : MonoBehaviour
             UpdateFaithPointsUI();
         }
 
+        if (errorMessage != null)
+        {
+            errorMessage.gameObject.SetActive(false); // 初期状態では非表示
+        }
+
         // ボタンのクリックイベントを設定
         returnToStageSelectButton.onClick.AddListener(ReturnToStageSelect);
 
@@ -51,6 +56,26 @@ public class PointAllocationManager : MonoBehaviour
         }
     }
 
+    // エラーメッセージを表示する
+    public void ShowErrorMessage(string message)
+    {
+        if (errorMessage != null)
+        {
+            errorMessage.text = message;
+            errorMessage.gameObject.SetActive(true);
+            Invoke(nameof(HideErrorMessage), 2f); // 2秒後に非表示
+        }
+    }
+
+    // エラーメッセージを非表示にする
+    public void HideErrorMessage()
+    {
+        if (errorMessage != null)
+        {
+            errorMessage.gameObject.SetActive(false);
+        }
+    }
+
     // 信仰ポイントUIを更新する
     private void UpdateFaithPointsUI()
     {
@@ -60,22 +85,24 @@ public class PointAllocationManager : MonoBehaviour
         }
     }
 
-    // ステージセレクトシーンに戻る
     public void ReturnToStageSelect()
     {
-        equipManager.SetEquipUnits();   // 装備したユニットのリストを作成
-
-        if (UnitEquipManager.isEquipSelected)
+        if (equipManager != null)
         {
-            SceneManager.LoadScene("StageSelectScene");
+            equipManager.SetEquipUnits(); // 装備したユニットのリストを作成
+
+            if (UnitEquipManager.isEquipSelected)
+            {
+                SceneManager.LoadScene("StageSelectScene");
+            }
+            else
+            {
+                ShowErrorMessage("最低1つはユニットを装備してね");
+            }
         }
         else
         {
-            if (errorMessage != null)
-            {
-                errorMessage.gameObject.SetActive(true);
-                errorMessage.alpha = 1.5f;
-            }
+            Debug.LogError("equipManager が設定されていません。");
         }
     }
 }

@@ -11,8 +11,8 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        // Escapeキーでポーズ切り替え
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Escapeキーまたはコントローラーのスタートボタンでポーズ切り替え
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7))
         {
             if (isPaused)
             {

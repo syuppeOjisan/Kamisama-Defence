@@ -13,7 +13,7 @@ public class UnitButtonPressed : MonoBehaviour
 
     public void Start()
     {
-        if(button == null)
+        if (button == null)
         {
             Debug.LogError("ボタンが設定されていません");
         }
@@ -24,7 +24,7 @@ public class UnitButtonPressed : MonoBehaviour
             selected = button.colors;
         }
 
-        
+
         normal = SetColorBlock(normal, Color.white);        // 選択されていないときの色
         selected = SetColorBlock(selected, Color.green);    // 選択されたときの色
 
@@ -45,13 +45,13 @@ public class UnitButtonPressed : MonoBehaviour
 
     public void ButtonPressed()
     {
-        if(!TryGetComponent<Toggle>(out Toggle toggle))
+        if (!TryGetComponent<Toggle>(out Toggle toggle))
         {
             Debug.LogError("トグルが見つかりませんでした");
             return;
         }
 
-        if(toggle.isOn)
+        if (toggle.isOn)
         {
 
             button.colors = selected;
@@ -66,7 +66,7 @@ public class UnitButtonPressed : MonoBehaviour
     {
         colorBlock.normalColor = color;
         colorBlock.pressedColor = color;
-        colorBlock.selectedColor = Color.gray;
+        colorBlock.selectedColor = color;
         colorBlock.colorMultiplier = 1.0f;
 
         color.a = 0.5f;

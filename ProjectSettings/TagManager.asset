@@ -11,6 +11,8 @@ TagManager:
   - Worshipper
   - Path
   - Warp
+  - ScrollView
+  - UIButton
   layers:
   - Default
   - TransparentFX
