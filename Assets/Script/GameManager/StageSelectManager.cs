@@ -1,98 +1,44 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
+using TMPro;
 
 public class StageSelectManager : MonoBehaviour
 {
-    public Button stage1Button;
-    public Button stage2Button;
-    public Button stage3Button;
-    public Button stage4Button;
-    public Button stage5Button;
-    public Button stage6Button;
-    public Button stage7Button;
-    public Button stage8Button;
-    public Button stage9Button;
-    public Button stage10Button;
-    public Button stage11Button;
-    public Button stage12Button;
-    public Button stage13Button;
-    public Button stage14Button;
-    public Button stage15Button;
-    public Button stage16Button;
-    public Button stage17Button;
-    public Button stage18Button;
+    public Button[] stageButtons; // 全てのステージボタン
     public Button returnToTitleButton; // タイトルに戻るボタン
     public Button pointAllocationButton; // 永続強化シーンへのボタン
-    public GameObject scrollBar;    // スクロールバーが入ってるオブジェクト
-
-    [Header("ボタンの数")]
-    public float buttonAmount = 10;
-    [Header("スクロールビューの上と下")]
-    public GameObject scrollView_Top;
-    public GameObject scrollView_Bottom;
+    public GameObject equipPromptPanel; // ユニット装備促進メッセージのパネル
+    public TextMeshProUGUI equipPromptText; // メッセージ用テキスト
+    public Image equipPromptImage; // 背景用の画像
+    public ScrollRect stageScrollView; // スクロールビューのScrollRect
 
     private FadeController fadeController;
-    private Button[] allButtons; // シーン内のすべてのボタン
-    private ScrollRect scrollRect;  // スクロールバー本体
-    private float moveAmount;   // スクロールバーの移動量
 
     void Start()
     {
         // FadeControllerをシーン内から探す
         fadeController = FindObjectOfType<FadeController>();
 
-        // シーン内のすべてのボタンを取得
-        allButtons = FindObjectsOfType<Button>();
+        // ユニット装備状態を確認
+        CheckUnitEquipStatus();
 
-        // シーン開始時にフェードインを実行
+        // Fadeイン処理
         if (fadeController != null)
         {
             SetButtonsInteractable(false); // フェード中はボタンを無効化
-            StartCoroutine(fadeController.FadeIn(() =>
-            {
-                SetButtonsInteractable(true); // フェードイン完了後にボタンを有効化
-            }));
+            StartCoroutine(fadeController.FadeIn(() => SetButtonsInteractable(true)));
         }
 
         // ボタンのクリックイベントを設定
-        stage1Button.onClick.AddListener(() => SelectStage(1));
-        stage2Button.onClick.AddListener(() => SelectStage(2));
-        stage3Button.onClick.AddListener(() => SelectStage(3));
-        stage4Button.onClick.AddListener(() => SelectStage(4));
-        stage5Button.onClick.AddListener(() => SelectStage(5));
-        stage6Button.onClick.AddListener(() => SelectStage(6));
-        stage7Button.onClick.AddListener(() => SelectStage(7));
-        stage8Button.onClick.AddListener(() => SelectStage(8));
-        stage9Button.onClick.AddListener(() => SelectStage(9));
-        stage10Button.onClick.AddListener(() => SelectStage(10));
-        //stage11Button.onClick.AddListener(() => SelectStage(11));
-        //stage12Button.onClick.AddListener(() => SelectStage(12));
-        //stage13Button.onClick.AddListener(() => SelectStage(13));
-        //stage14Button.onClick.AddListener(() => SelectStage(14));
-        //stage15Button.onClick.AddListener(() => SelectStage(15));
-        //stage16Button.onClick.AddListener(() => SelectStage(16));
-        //stage17Button.onClick.AddListener(() => SelectStage(17));
-        //stage18Button.onClick.AddListener(() => SelectStage(18));
+        for (int i = 0; i < stageButtons.Length; i++)
+        {
+            int stageNumber = i + 1;
+            stageButtons[i].onClick.AddListener(() => SelectStage(stageNumber));
+        }
         returnToTitleButton.onClick.AddListener(ReturnToTitle);
         pointAllocationButton.onClick.AddListener(GoToPointAllocation);
-
-        // スクロールバーの本体を取得
-        if(!scrollBar.TryGetComponent<ScrollRect>(out scrollRect))  
-        {
-            Debug.LogError("ScrollRectが取得できませんでした");
-        }
-
-        // スクロールバーの移動量を計算
-        moveAmount = 1 / (buttonAmount - 6f);
-    }
-
-    void Update()
-    {
-        UpdateScroll();
     }
 
     // ステージ選択してキャラクターセレクトに移行
@@ -114,7 +60,7 @@ public class StageSelectManager : MonoBehaviour
     // タイトルシーンに戻る
     public void ReturnToTitle()
     {
-        SetButtonsInteractable(false); // ボタンを無効化
+        SetButtonsInteractable(false);
 
         if (fadeController != null)
         {
@@ -129,7 +75,7 @@ public class StageSelectManager : MonoBehaviour
     // 永続強化シーンに遷移する
     public void GoToPointAllocation()
     {
-        SetButtonsInteractable(false); // ボタンを無効化
+        SetButtonsInteractable(false);
 
         if (fadeController != null)
         {
@@ -141,28 +87,40 @@ public class StageSelectManager : MonoBehaviour
         }
     }
 
-    // ボタンの有効/無効を設定
-    private void SetButtonsInteractable(bool interactable)
+    // ユニットが装備されているかを確認してScroll Viewとボタンを無効化/有効化
+    private void CheckUnitEquipStatus()
     {
-        foreach (Button button in allButtons)
+        bool isUnitEquipped = UnitEquipManager.equipUnits != null && UnitEquipManager.equipUnits.Count > 0;
+
+        if (isUnitEquipped)
+        {
+            SetStageButtonsInteractable(true);
+            stageScrollView.enabled = true; // Scroll Viewの操作を有効化
+            equipPromptPanel.SetActive(false); // メッセージ非表示
+        }
+        else
+        {
+            SetStageButtonsInteractable(false);
+            stageScrollView.enabled = false; // Scroll Viewの操作を無効化
+            equipPromptPanel.SetActive(true); // メッセージ表示
+            equipPromptText.text = "まずはユニットを装備しよう！";
+        }
+    }
+
+    // ステージボタンの有効/無効を設定
+    private void SetStageButtonsInteractable(bool interactable)
+    {
+        foreach (Button button in stageButtons)
         {
             button.interactable = interactable;
         }
     }
 
-    // コントローラーでスクロールバーを移動
-    private void UpdateScroll()
+    // ボタンの有効/無効を設定（フェード時）
+    private void SetButtonsInteractable(bool interactable)
     {
-        if (EventSystem.current.currentSelectedGameObject != null)
-        {
-            if (EventSystem.current.currentSelectedGameObject.GetComponent<RectTransform>().position.y >= scrollView_Top.transform.position.y)
-            {
-                scrollRect.verticalNormalizedPosition = scrollRect.verticalNormalizedPosition + moveAmount;
-            }
-            else if (EventSystem.current.currentSelectedGameObject.GetComponent<RectTransform>().position.y <= scrollView_Bottom.transform.position.y)
-            {
-                scrollRect.verticalNormalizedPosition = scrollRect.verticalNormalizedPosition - moveAmount;
-            }
-        }
+        returnToTitleButton.interactable = interactable;
+        pointAllocationButton.interactable = interactable;
+        SetStageButtonsInteractable(interactable);
     }
 }

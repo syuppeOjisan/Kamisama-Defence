@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class UnitEquipManager : MonoBehaviour
 {
-    [Header("トグルボタン")]
-    public Toggle[] toggles;    // 使用するトグルボタン
+    [Header("装備ボタン")]
+    public Button[] equipButtons; // 装備ボタンリスト
     [Header("ボタンに対応したユニット")]
-    public GameObject[] units;  // ユニットリスト
-    public Sprite[] unitIcons;  // 各ユニットに対応するアイコン画像
+    public GameObject[] units; // ユニットリスト
+    public Sprite[] unitIcons; // 各ユニットに対応するアイコン画像
 
     [Header("UI関連")]
     public TextMeshProUGUI equipLimitText; // 残り装備可能数を表示するUI
-    public TextMeshProUGUI errorMessage;   // 警告メッセージ用UI
+    public TextMeshProUGUI errorMessage; // 警告メッセージ用UI
 
     [HideInInspector]
     public static List<GameObject> equipUnits; // 装備したユニットのリスト
@@ -23,6 +22,7 @@ public class UnitEquipManager : MonoBehaviour
     public static bool isEquipSelected = false; // 装備を変更したかどうか
 
     private const int maxEquipLimit = 6; // 最大装備数
+    private Dictionary<Button, bool> buttonStates = new Dictionary<Button, bool>(); // ボタンの選択状態
 
     void Start()
     {
@@ -33,102 +33,96 @@ public class UnitEquipManager : MonoBehaviour
             equipUnitIcons = new List<Sprite>();
         }
 
-        // トグルにリスナーを追加してリアルタイム更新を有効に
-        foreach (Toggle toggle in toggles)
+        // ボタン状態を初期化
+        foreach (Button button in equipButtons)
         {
-            toggle.onValueChanged.AddListener(delegate { UpdateEquipLimitUI(); });
+            buttonStates[button] = false; // 全てのボタンを未選択状態に設定
+            button.onClick.AddListener(() => ToggleEquip(button)); // ボタンにクリックイベントを追加
         }
 
         // 初期状態をUIに反映
-        SetToggles();
         UpdateEquipLimitUI();
         HideErrorMessage();
     }
 
-    // ボタンで選択されたユニットをリストに反映
+    // ボタンが押されたときに装備のオンオフを切り替える
+    private void ToggleEquip(Button button)
+    {
+        if (!buttonStates.ContainsKey(button))
+            return;
+
+        int selectedCount = equipUnits.Count;
+
+        if (buttonStates[button]) // 既に選択されている場合
+        {
+            buttonStates[button] = false;
+            button.GetComponent<Image>().color = Color.white; // デフォルト色に戻す
+
+            int index = System.Array.IndexOf(equipButtons, button);
+            if (index >= 0)
+            {
+                equipUnits.Remove(units[index]);
+                equipUnitIcons.Remove(unitIcons[index]);
+            }
+        }
+        else if (selectedCount < maxEquipLimit) // 未選択で装備可能な場合
+        {
+            buttonStates[button] = true;
+            button.GetComponent<Image>().color = Color.green; // 選択色に変更
+
+            int index = System.Array.IndexOf(equipButtons, button);
+            if (index >= 0)
+            {
+                equipUnits.Add(units[index]);
+                equipUnitIcons.Add(unitIcons[index]);
+            }
+        }
+        else // 装備上限に達している場合
+        {
+            ShowErrorMessage("装備上限に達しています！");
+        }
+
+        isEquipSelected = equipUnits.Count > 0;
+        UpdateEquipLimitUI();
+    }
+
     public void SetEquipUnits()
     {
         equipUnits.Clear(); // リストを更新するので既存内容をクリア
         equipUnitIcons.Clear();
 
-        for (int i = 0; i < toggles.Length; i++)
+        foreach (var kvp in buttonStates)
         {
-            if (toggles[i].isOn)
+            if (kvp.Value) // 選択状態がtrueのボタン
             {
-                equipUnits.Add(units[i]);
-                equipUnitIcons.Add(unitIcons[i]); // アイコンも保存
+                int index = System.Array.IndexOf(equipButtons, kvp.Key);
+                if (index >= 0)
+                {
+                    equipUnits.Add(units[index]);
+                    equipUnitIcons.Add(unitIcons[index]); // アイコンも保存
+                }
             }
         }
 
         isEquipSelected = equipUnits.Count > 0; // 少なくとも1つ装備しているか確認
-        UpdateEquipLimitUI();
-    }
-
-    // トグル状態をUIに反映
-    public void SetToggles()
-    {
-        foreach (GameObject unit in equipUnits)
-        {
-            int index = Array.IndexOf(units, unit);
-
-            if (index >= 0)
-            {
-                toggles[index].isOn = true;
-            }
-        }
-
-        UpdateEquipLimitUI();
     }
 
     // 残り装備可能数をUIで更新
     private void UpdateEquipLimitUI()
     {
-        int selectedCount = CountSelectedUnits();
+        int selectedCount = equipUnits.Count;
         int remainingCount = maxEquipLimit - selectedCount;
 
         if (remainingCount > 0)
         {
             equipLimitText.text = $"あと{remainingCount}個装備できるよ";
             equipLimitText.color = Color.green;
-
-            EnableToggles(true); // トグルを有効化
         }
         else
         {
             equipLimitText.text = "装備上限です";
             equipLimitText.color = Color.red;
-
-            EnableToggles(false); // トグルを無効化
         }
-    }
-
-    // トグルの有効/無効を切り替え
-    private void EnableToggles(bool enable)
-    {
-        for (int i = 0; i < toggles.Length; i++)
-        {
-            // 選択されていないトグルのみ制御
-            if (!toggles[i].isOn)
-            {
-                toggles[i].interactable = enable;
-            }
-        }
-    }
-
-    // 選択されているユニットの数をカウント
-    private int CountSelectedUnits()
-    {
-        int count = 0;
-
-        foreach (Toggle toggle in toggles)
-        {
-            if (toggle.isOn)
-            {
-                count++;
-            }
-        }
-
-        return count;
     }
 
     // 警告メッセージを表示
@@ -138,6 +132,7 @@ public class UnitEquipManager : MonoBehaviour
         {
             errorMessage.text = message;
             errorMessage.gameObject.SetActive(true);
+            Invoke(nameof(HideErrorMessage), 2f); // 2秒後に自動的に非表示
         }
     }
 

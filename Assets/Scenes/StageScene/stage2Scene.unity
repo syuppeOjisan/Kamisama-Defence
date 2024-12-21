@@ -7346,7 +7346,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7728,7 +7728,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10684,7 +10684,7 @@ GameObject:
   - component: {fileID: 2353795137596433557}
   m_Layer: 0
   m_Name: SpawnPoint_fin_1
-  m_TagString: Untagged
+  m_TagString: Warp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11712,7 +11712,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12752,12 +12752,18 @@ MonoBehaviour:
   character1StunnedPortrait: {fileID: 0}
   character2DefaultPortrait: {fileID: 21300000, guid: 675468e3d2203cf47b3b09e274b033b0, type: 3}
   character2StunnedPortrait: {fileID: 21300000, guid: 05ab85a4cade35c4f8ee358468b0764c, type: 3}
+  character3DefaultPortrait: {fileID: 0}
+  character3StunnedPortrait: {fileID: 0}
+  character4DefaultPortrait: {fileID: 0}
+  character4StunnedPortrait: {fileID: 0}
   character1StunnedSpeeches:
   - "\u304D\u3083\u3042\uFF01"
   - "\u3044\u305F\u3044\u308F\u306D\uFF01"
   character2StunnedSpeeches:
   - "\u3046\u308F\u3041\uFF01"
   - "\u3042\u3076\u306A\u3044\u306A\u30FC\uFF01\u3082\u30FC\uFF01"
+  character3StunnedSpeeches: []
+  character4StunnedSpeeches: []
   defenseUnitDefaultPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   defenseUnitUpgradedPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   defenseUnitPlacementSpeechesCharacter1:
@@ -12770,6 +12776,14 @@ MonoBehaviour:
   - "\u706F\u7BED\u3092\u7F6E\u3044\u305F\u3088\uFF01"
   defenseUnitUpgradedSpeechesCharacter2:
   - "\u706F\u7BED\u3092\u30A2\u30C3\u30D7\u30B0\u30EC\u30FC\u30C9\uFF01"
+  defenseUnitDefaultPortraitCharacter3: {fileID: 0}
+  defenseUnitUpgradedPortraitCharacter3: {fileID: 0}
+  defenseUnitPlacementSpeechesCharacter3: []
+  defenseUnitUpgradedSpeechesCharacter3: []
+  defenseUnitDefaultPortraitCharacter4: {fileID: 0}
+  defenseUnitUpgradedPortraitCharacter4: {fileID: 0}
+  defenseUnitPlacementSpeechesCharacter4: []
+  defenseUnitUpgradedSpeechesCharacter4: []
   fenceUnitDefaultPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   fenceUnitUpgradedPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   fenceUnitPlacementSpeechesCharacter1:
@@ -12782,6 +12796,14 @@ MonoBehaviour:
   - "\u67F5\u3092\u7F6E\u3044\u305F\u3088"
   fenceUnitUpgradedSpeechesCharacter2:
   - "\u67F5\u3092\u88DC\u5F37\u3057\u3068\u3044\u305F\u3088"
+  fenceUnitDefaultPortraitCharacter3: {fileID: 0}
+  fenceUnitUpgradedPortraitCharacter3: {fileID: 0}
+  fenceUnitPlacementSpeechesCharacter3: []
+  fenceUnitUpgradedSpeechesCharacter3: []
+  fenceUnitDefaultPortraitCharacter4: {fileID: 0}
+  fenceUnitUpgradedPortraitCharacter4: {fileID: 0}
+  fenceUnitPlacementSpeechesCharacter4: []
+  fenceUnitUpgradedSpeechesCharacter4: []
   spikeUnitDefaultPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   spikeUnitUpgradedPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   spikeUnitPlacementSpeechesCharacter1:
@@ -12794,6 +12816,14 @@ MonoBehaviour:
   - "\u3053\u308C\u306F\u75DB\u3044\u305E\uFF5E"
   spikeUnitUpgradedSpeechesCharacter2:
   - "\u3082\u3063\u3068\u5F37\u3044\u30C8\u30B2\u306B\u3057\u3066\u304A\u3044\u305F\u3088"
+  spikeUnitDefaultPortraitCharacter3: {fileID: 0}
+  spikeUnitUpgradedPortraitCharacter3: {fileID: 0}
+  spikeUnitPlacementSpeechesCharacter3: []
+  spikeUnitUpgradedSpeechesCharacter3: []
+  spikeUnitDefaultPortraitCharacter4: {fileID: 0}
+  spikeUnitUpgradedPortraitCharacter4: {fileID: 0}
+  spikeUnitPlacementSpeechesCharacter4: []
+  spikeUnitUpgradedSpeechesCharacter4: []
   caltropUnitDefaultPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   caltropUnitUpgradedPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   caltropUnitPlacementSpeechesCharacter1:
@@ -12806,6 +12836,14 @@ MonoBehaviour:
   - "\u3053\u3053\u306B\u307E\u304D\u3073\u3057\u7F6E\u3044\u3068\u304F\u306D\uFF5E"
   caltropUnitUpgradedSpeechesCharacter2:
   - "\u3082\u3063\u3068\u5F37\u529B\u306A\u307E\u304D\u3073\u3057\u306B\u5909\u3048\u3066\u304A\u3044\u305F\u308F\u3088"
+  caltropUnitDefaultPortraitCharacter3: {fileID: 0}
+  caltropUnitUpgradedPortraitCharacter3: {fileID: 0}
+  caltropUnitPlacementSpeechesCharacter3: []
+  caltropUnitUpgradedSpeechesCharacter3: []
+  caltropUnitDefaultPortraitCharacter4: {fileID: 0}
+  caltropUnitUpgradedPortraitCharacter4: {fileID: 0}
+  caltropUnitPlacementSpeechesCharacter4: []
+  caltropUnitUpgradedSpeechesCharacter4: []
   flameTrapUnitDefaultPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   flameTrapUnitUpgradedPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   flameTrapUnitPlacementSpeechesCharacter1:
@@ -12818,6 +12856,14 @@ MonoBehaviour:
   - "\u9593\u6B20\u6CC9\u304C\u3053\u3093\u306A\u3068\u3053\u308D\u306B\uFF01\uFF1F"
   flameTrapUnitUpgradedSpeechesCharacter2:
   - "\u3042\u3063\u3061\u3063\u3061\uFF5E\uFF01"
+  flameTrapUnitDefaultPortraitCharacter3: {fileID: 0}
+  flameTrapUnitUpgradedPortraitCharacter3: {fileID: 0}
+  flameTrapUnitPlacementSpeechesCharacter3: []
+  flameTrapUnitUpgradedSpeechesCharacter3: []
+  flameTrapUnitDefaultPortraitCharacter4: {fileID: 0}
+  flameTrapUnitUpgradedPortraitCharacter4: {fileID: 0}
+  flameTrapUnitPlacementSpeechesCharacter4: []
+  flameTrapUnitUpgradedSpeechesCharacter4: []
   shrineUnitDefaultPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   shrineUnitUpgradedPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   shrineUnitPlacementSpeechesCharacter1:
@@ -12831,6 +12877,14 @@ MonoBehaviour:
   - "\u304B\u308F\u3044\u3044\u7960\u3092\u5EFA\u3066\u3061\u3083\u304A\uFF01"
   shrineUnitUpgradedSpeechesCharacter2:
   - "\u53EF\u611B\u3044\u88C5\u98FE\u3082\u65BD\u3057\u3066\u3063\u3068"
+  shrineUnitDefaultPortraitCharacter3: {fileID: 0}
+  shrineUnitUpgradedPortraitCharacter3: {fileID: 0}
+  shrineUnitPlacementSpeechesCharacter3: []
+  shrineUnitUpgradedSpeechesCharacter3: []
+  shrineUnitDefaultPortraitCharacter4: {fileID: 0}
+  shrineUnitUpgradedPortraitCharacter4: {fileID: 0}
+  shrineUnitPlacementSpeechesCharacter4: []
+  shrineUnitUpgradedSpeechesCharacter4: []
   bearTrapUnitDefaultPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   bearTrapUnitUpgradedPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   bearTrapUnitPlacementSpeechesCharacter1:
@@ -12843,6 +12897,14 @@ MonoBehaviour:
   - "\u30C8\u30E9\u30D0\u30B5\u30DF\u3092\u304A\u3044\u305F\u3088"
   bearTrapUnitUpgradedSpeechesCharacter2:
   - "\u81EA\u5206\u304C\u5F15\u3063\u639B\u304B\u3089\u306A\u3044\u3088\u3046\u306B\u614E\u91CD\u306B\u3063\u3068"
+  bearTrapUnitDefaultPortraitCharacter3: {fileID: 0}
+  bearTrapUnitUpgradedPortraitCharacter3: {fileID: 0}
+  bearTrapUnitPlacementSpeechesCharacter3: []
+  bearTrapUnitUpgradedSpeechesCharacter3: []
+  bearTrapUnitDefaultPortraitCharacter4: {fileID: 0}
+  bearTrapUnitUpgradedPortraitCharacter4: {fileID: 0}
+  bearTrapUnitPlacementSpeechesCharacter4: []
+  bearTrapUnitUpgradedSpeechesCharacter4: []
   waterStationUnitDefaultPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   waterStationUnitUpgradedPortraitCharacter1: {fileID: 21300000, guid: 44c91544c0432684390213251d430de4, type: 3}
   waterStationUnitPlacementSpeechesCharacter1:
@@ -12855,6 +12917,14 @@ MonoBehaviour:
   - "\u9060\u3044\u3068\u3053\u308D\u304B\u3089\u304A\u3064\u304B\u308C\u3055\u307E\uFF01"
   waterStationUnitUpgradedSpeechesCharacter2:
   - "\u98F2\u307F\u7269\u306F\u3044\u304B\u304C\uFF1F"
+  waterStationUnitDefaultPortraitCharacter3: {fileID: 0}
+  waterStationUnitUpgradedPortraitCharacter3: {fileID: 0}
+  waterStationUnitPlacementSpeechesCharacter3: []
+  waterStationUnitUpgradedSpeechesCharacter3: []
+  waterStationUnitDefaultPortraitCharacter4: {fileID: 0}
+  waterStationUnitUpgradedPortraitCharacter4: {fileID: 0}
+  waterStationUnitPlacementSpeechesCharacter4: []
+  waterStationUnitUpgradedSpeechesCharacter4: []
   slowUnit1DefaultPortraitCharacter1: {fileID: 0}
   slowUnit1UpgradedPortraitCharacter1: {fileID: 0}
   slowUnit1PlacementSpeechesCharacter1: []
@@ -12863,6 +12933,14 @@ MonoBehaviour:
   slowUnit1UpgradedPortraitCharacter2: {fileID: 0}
   slowUnit1PlacementSpeechesCharacter2: []
   slowUnit1UpgradedSpeechesCharacter2: []
+  slowUnit1DefaultPortraitCharacter3: {fileID: 0}
+  slowUnit1UpgradedPortraitCharacter3: {fileID: 0}
+  slowUnit1PlacementSpeechesCharacter3: []
+  slowUnit1UpgradedSpeechesCharacter3: []
+  slowUnit1DefaultPortraitCharacter4: {fileID: 0}
+  slowUnit1UpgradedPortraitCharacter4: {fileID: 0}
+  slowUnit1PlacementSpeechesCharacter4: []
+  slowUnit1UpgradedSpeechesCharacter4: []
   slowUnit2DefaultPortraitCharacter1: {fileID: 0}
   slowUnit2UpgradedPortraitCharacter1: {fileID: 0}
   slowUnit2PlacementSpeechesCharacter1: []
@@ -12871,6 +12949,14 @@ MonoBehaviour:
   slowUnit2UpgradedPortraitCharacter2: {fileID: 0}
   slowUnit2PlacementSpeechesCharacter2: []
   slowUnit2UpgradedSpeechesCharacter2: []
+  slowUnit2DefaultPortraitCharacter3: {fileID: 0}
+  slowUnit2UpgradedPortraitCharacter3: {fileID: 0}
+  slowUnit2PlacementSpeechesCharacter3: []
+  slowUnit2UpgradedSpeechesCharacter3: []
+  slowUnit2DefaultPortraitCharacter4: {fileID: 0}
+  slowUnit2UpgradedPortraitCharacter4: {fileID: 0}
+  slowUnit2PlacementSpeechesCharacter4: []
+  slowUnit2UpgradedSpeechesCharacter4: []
   slowUnit3DefaultPortraitCharacter1: {fileID: 0}
   slowUnit3UpgradedPortraitCharacter1: {fileID: 0}
   slowUnit3PlacementSpeechesCharacter1: []
@@ -12879,6 +12965,14 @@ MonoBehaviour:
   slowUnit3UpgradedPortraitCharacter2: {fileID: 0}
   slowUnit3PlacementSpeechesCharacter2: []
   slowUnit3UpgradedSpeechesCharacter2: []
+  slowUnit3DefaultPortraitCharacter3: {fileID: 0}
+  slowUnit3UpgradedPortraitCharacter3: {fileID: 0}
+  slowUnit3PlacementSpeechesCharacter3: []
+  slowUnit3UpgradedSpeechesCharacter3: []
+  slowUnit3DefaultPortraitCharacter4: {fileID: 0}
+  slowUnit3UpgradedPortraitCharacter4: {fileID: 0}
+  slowUnit3PlacementSpeechesCharacter4: []
+  slowUnit3UpgradedSpeechesCharacter4: []
   MagicCircleUnitDefaultPortraitCharacter1: {fileID: 0}
   MagicCircleUnitUpgradedPortraitCharacter1: {fileID: 0}
   MagicCircleUnitPlacementSpeechesCharacter1: []
@@ -12887,6 +12981,14 @@ MonoBehaviour:
   MagicCircleUnitUpgradedPortraitCharacter2: {fileID: 0}
   MagicCircleUnitPlacementSpeechesCharacter2: []
   MagicCircleUnitUpgradedSpeechesCharacter2: []
+  MagicCircleUnitDefaultPortraitCharacter3: {fileID: 0}
+  MagicCircleUnitUpgradedPortraitCharacter3: {fileID: 0}
+  MagicCircleUnitPlacementSpeechesCharacter3: []
+  MagicCircleUnitUpgradedSpeechesCharacter3: []
+  MagicCircleUnitDefaultPortraitCharacter4: {fileID: 0}
+  MagicCircleUnitUpgradedPortraitCharacter4: {fileID: 0}
+  MagicCircleUnitPlacementSpeechesCharacter4: []
+  MagicCircleUnitUpgradedSpeechesCharacter4: []
   defaultSpeech: 
 --- !u!114 &2725757401134777042
 MonoBehaviour:
@@ -13226,7 +13328,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27718,6 +27820,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character1Prefab: {fileID: 5526723109095607117, guid: 152215ce393b7314fb95e620b7b43c04, type: 3}
   character2Prefab: {fileID: 208333808698884757, guid: 6389912dbc8cf0a4bb84f9db9d7d3136, type: 3}
+  character3Prefab: {fileID: 5899843692355723700, guid: 88fd6313966e8ff4080c345c519d51e5, type: 3}
+  character4Prefab: {fileID: 2674011042732066726, guid: 058531e275ace3c46aec4b5f573374ee, type: 3}
   playerSpawnPoint: {fileID: 3328536394008667444}
   initialOfferingPoints: 100
   offeringPoints: 0
@@ -28092,7 +28196,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31152,7 +31256,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31443,7 +31547,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -47474,7 +47578,7 @@ GameObject:
   - component: {fileID: 338314812489167952}
   m_Layer: 0
   m_Name: SpawnPoint_fin_1
-  m_TagString: Untagged
+  m_TagString: Warp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48805,7 +48909,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -62065,7 +62169,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7049206203601572008, guid: cdd5307d09cb7254094a0beb4aa6c618, type: 3}
+  - {fileID: 2100000, guid: ff8b3a6bf84aac84dbbee001dd8f1098, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

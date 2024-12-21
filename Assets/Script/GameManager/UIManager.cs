@@ -13,8 +13,14 @@ public class UIManager : MonoBehaviour
     public Sprite character1StunnedPortrait;
     public Sprite character2DefaultPortrait;
     public Sprite character2StunnedPortrait;
+    public Sprite character3DefaultPortrait;
+    public Sprite character3StunnedPortrait;
+    public Sprite character4DefaultPortrait;
+    public Sprite character4StunnedPortrait;
     public List<string> character1StunnedSpeeches;
     public List<string> character2StunnedSpeeches;
+    public List<string> character3StunnedSpeeches;
+    public List<string> character4StunnedSpeeches;
 
     // DefenseUnit 用
     public Sprite defenseUnitDefaultPortraitCharacter1;
@@ -27,6 +33,16 @@ public class UIManager : MonoBehaviour
     public List<string> defenseUnitPlacementSpeechesCharacter2;
     public List<string> defenseUnitUpgradedSpeechesCharacter2;
 
+    public Sprite defenseUnitDefaultPortraitCharacter3;
+    public Sprite defenseUnitUpgradedPortraitCharacter3;
+    public List<string> defenseUnitPlacementSpeechesCharacter3;
+    public List<string> defenseUnitUpgradedSpeechesCharacter3;
+
+    public Sprite defenseUnitDefaultPortraitCharacter4;
+    public Sprite defenseUnitUpgradedPortraitCharacter4;
+    public List<string> defenseUnitPlacementSpeechesCharacter4;
+    public List<string> defenseUnitUpgradedSpeechesCharacter4;
+
     // FenceUnit 用
     public Sprite fenceUnitDefaultPortraitCharacter1;
     public Sprite fenceUnitUpgradedPortraitCharacter1;
@@ -37,6 +53,16 @@ public class UIManager : MonoBehaviour
     public Sprite fenceUnitUpgradedPortraitCharacter2;
     public List<string> fenceUnitPlacementSpeechesCharacter2;
     public List<string> fenceUnitUpgradedSpeechesCharacter2;
+
+    public Sprite fenceUnitDefaultPortraitCharacter3;
+    public Sprite fenceUnitUpgradedPortraitCharacter3;
+    public List<string> fenceUnitPlacementSpeechesCharacter3;
+    public List<string> fenceUnitUpgradedSpeechesCharacter3;
+
+    public Sprite fenceUnitDefaultPortraitCharacter4;
+    public Sprite fenceUnitUpgradedPortraitCharacter4;
+    public List<string> fenceUnitPlacementSpeechesCharacter4;
+    public List<string> fenceUnitUpgradedSpeechesCharacter4;
 
     // SpikeUnit 用
     public Sprite spikeUnitDefaultPortraitCharacter1;
@@ -49,6 +75,16 @@ public class UIManager : MonoBehaviour
     public List<string> spikeUnitPlacementSpeechesCharacter2;
     public List<string> spikeUnitUpgradedSpeechesCharacter2;
 
+    public Sprite spikeUnitDefaultPortraitCharacter3;
+    public Sprite spikeUnitUpgradedPortraitCharacter3;
+    public List<string> spikeUnitPlacementSpeechesCharacter3;
+    public List<string> spikeUnitUpgradedSpeechesCharacter3;
+
+    public Sprite spikeUnitDefaultPortraitCharacter4;
+    public Sprite spikeUnitUpgradedPortraitCharacter4;
+    public List<string> spikeUnitPlacementSpeechesCharacter4;
+    public List<string> spikeUnitUpgradedSpeechesCharacter4;
+
     // CaltropUnit 用
     public Sprite caltropUnitDefaultPortraitCharacter1;
     public Sprite caltropUnitUpgradedPortraitCharacter1;
@@ -59,6 +95,16 @@ public class UIManager : MonoBehaviour
     public Sprite caltropUnitUpgradedPortraitCharacter2;
     public List<string> caltropUnitPlacementSpeechesCharacter2;
     public List<string> caltropUnitUpgradedSpeechesCharacter2;
+
+    public Sprite caltropUnitDefaultPortraitCharacter3;
+    public Sprite caltropUnitUpgradedPortraitCharacter3;
+    public List<string> caltropUnitPlacementSpeechesCharacter3;
+    public List<string> caltropUnitUpgradedSpeechesCharacter3;
+
+    public Sprite caltropUnitDefaultPortraitCharacter4;
+    public Sprite caltropUnitUpgradedPortraitCharacter4;
+    public List<string> caltropUnitPlacementSpeechesCharacter4;
+    public List<string> caltropUnitUpgradedSpeechesCharacter4;
 
     // FlameTrapUnit 用
     public Sprite flameTrapUnitDefaultPortraitCharacter1;
@@ -71,6 +117,16 @@ public class UIManager : MonoBehaviour
     public List<string> flameTrapUnitPlacementSpeechesCharacter2;
     public List<string> flameTrapUnitUpgradedSpeechesCharacter2;
 
+    public Sprite flameTrapUnitDefaultPortraitCharacter3;
+    public Sprite flameTrapUnitUpgradedPortraitCharacter3;
+    public List<string> flameTrapUnitPlacementSpeechesCharacter3;
+    public List<string> flameTrapUnitUpgradedSpeechesCharacter3;
+
+    public Sprite flameTrapUnitDefaultPortraitCharacter4;
+    public Sprite flameTrapUnitUpgradedPortraitCharacter4;
+    public List<string> flameTrapUnitPlacementSpeechesCharacter4;
+    public List<string> flameTrapUnitUpgradedSpeechesCharacter4;
+
     // ShrineUnit 用
     public Sprite shrineUnitDefaultPortraitCharacter1;
     public Sprite shrineUnitUpgradedPortraitCharacter1;
@@ -81,6 +137,16 @@ public class UIManager : MonoBehaviour
     public Sprite shrineUnitUpgradedPortraitCharacter2;
     public List<string> shrineUnitPlacementSpeechesCharacter2;
     public List<string> shrineUnitUpgradedSpeechesCharacter2;
+
+    public Sprite shrineUnitDefaultPortraitCharacter3;
+    public Sprite shrineUnitUpgradedPortraitCharacter3;
+    public List<string> shrineUnitPlacementSpeechesCharacter3;
+    public List<string> shrineUnitUpgradedSpeechesCharacter3;
+
+    public Sprite shrineUnitDefaultPortraitCharacter4;
+    public Sprite shrineUnitUpgradedPortraitCharacter4;
+    public List<string> shrineUnitPlacementSpeechesCharacter4;
+    public List<string> shrineUnitUpgradedSpeechesCharacter4;
 
     // BearTrapUnit 用
     public Sprite bearTrapUnitDefaultPortraitCharacter1;
@@ -93,6 +159,16 @@ public class UIManager : MonoBehaviour
     public List<string> bearTrapUnitPlacementSpeechesCharacter2;
     public List<string> bearTrapUnitUpgradedSpeechesCharacter2;
 
+    public Sprite bearTrapUnitDefaultPortraitCharacter3;
+    public Sprite bearTrapUnitUpgradedPortraitCharacter3;
+    public List<string> bearTrapUnitPlacementSpeechesCharacter3;
+    public List<string> bearTrapUnitUpgradedSpeechesCharacter3;
+
+    public Sprite bearTrapUnitDefaultPortraitCharacter4;
+    public Sprite bearTrapUnitUpgradedPortraitCharacter4;
+    public List<string> bearTrapUnitPlacementSpeechesCharacter4;
+    public List<string> bearTrapUnitUpgradedSpeechesCharacter4;
+
     // WaterStationUnit 用
     public Sprite waterStationUnitDefaultPortraitCharacter1;
     public Sprite waterStationUnitUpgradedPortraitCharacter1;
@@ -103,6 +179,16 @@ public class UIManager : MonoBehaviour
     public Sprite waterStationUnitUpgradedPortraitCharacter2;
     public List<string> waterStationUnitPlacementSpeechesCharacter2;
     public List<string> waterStationUnitUpgradedSpeechesCharacter2;
+
+    public Sprite waterStationUnitDefaultPortraitCharacter3;
+    public Sprite waterStationUnitUpgradedPortraitCharacter3;
+    public List<string> waterStationUnitPlacementSpeechesCharacter3;
+    public List<string> waterStationUnitUpgradedSpeechesCharacter3;
+
+    public Sprite waterStationUnitDefaultPortraitCharacter4;
+    public Sprite waterStationUnitUpgradedPortraitCharacter4;
+    public List<string> waterStationUnitPlacementSpeechesCharacter4;
+    public List<string> waterStationUnitUpgradedSpeechesCharacter4;
 
     // SlowUnit1 用
     public Sprite slowUnit1DefaultPortraitCharacter1;
@@ -115,6 +201,16 @@ public class UIManager : MonoBehaviour
     public List<string> slowUnit1PlacementSpeechesCharacter2;
     public List<string> slowUnit1UpgradedSpeechesCharacter2;
 
+    public Sprite slowUnit1DefaultPortraitCharacter3;
+    public Sprite slowUnit1UpgradedPortraitCharacter3;
+    public List<string> slowUnit1PlacementSpeechesCharacter3;
+    public List<string> slowUnit1UpgradedSpeechesCharacter3;
+
+    public Sprite slowUnit1DefaultPortraitCharacter4;
+    public Sprite slowUnit1UpgradedPortraitCharacter4;
+    public List<string> slowUnit1PlacementSpeechesCharacter4;
+    public List<string> slowUnit1UpgradedSpeechesCharacter4;
+
     // SlowUnit2 用
     public Sprite slowUnit2DefaultPortraitCharacter1;
     public Sprite slowUnit2UpgradedPortraitCharacter1;
@@ -125,6 +221,16 @@ public class UIManager : MonoBehaviour
     public Sprite slowUnit2UpgradedPortraitCharacter2;
     public List<string> slowUnit2PlacementSpeechesCharacter2;
     public List<string> slowUnit2UpgradedSpeechesCharacter2;
+
+    public Sprite slowUnit2DefaultPortraitCharacter3;
+    public Sprite slowUnit2UpgradedPortraitCharacter3;
+    public List<string> slowUnit2PlacementSpeechesCharacter3;
+    public List<string> slowUnit2UpgradedSpeechesCharacter3;
+
+    public Sprite slowUnit2DefaultPortraitCharacter4;
+    public Sprite slowUnit2UpgradedPortraitCharacter4;
+    public List<string> slowUnit2PlacementSpeechesCharacter4;
+    public List<string> slowUnit2UpgradedSpeechesCharacter4;
 
     // SlowUnit3 用
     public Sprite slowUnit3DefaultPortraitCharacter1;
@@ -137,6 +243,16 @@ public class UIManager : MonoBehaviour
     public List<string> slowUnit3PlacementSpeechesCharacter2;
     public List<string> slowUnit3UpgradedSpeechesCharacter2;
 
+    public Sprite slowUnit3DefaultPortraitCharacter3;
+    public Sprite slowUnit3UpgradedPortraitCharacter3;
+    public List<string> slowUnit3PlacementSpeechesCharacter3;
+    public List<string> slowUnit3UpgradedSpeechesCharacter3;
+
+    public Sprite slowUnit3DefaultPortraitCharacter4;
+    public Sprite slowUnit3UpgradedPortraitCharacter4;
+    public List<string> slowUnit3PlacementSpeechesCharacter4;
+    public List<string> slowUnit3UpgradedSpeechesCharacter4;
+
     // MagicCircleUnit 用
     public Sprite MagicCircleUnitDefaultPortraitCharacter1;
     public Sprite MagicCircleUnitUpgradedPortraitCharacter1;
@@ -147,6 +263,16 @@ public class UIManager : MonoBehaviour
     public Sprite MagicCircleUnitUpgradedPortraitCharacter2;
     public List<string> MagicCircleUnitPlacementSpeechesCharacter2;
     public List<string> MagicCircleUnitUpgradedSpeechesCharacter2;
+
+    public Sprite MagicCircleUnitDefaultPortraitCharacter3;
+    public Sprite MagicCircleUnitUpgradedPortraitCharacter3;
+    public List<string> MagicCircleUnitPlacementSpeechesCharacter3;
+    public List<string> MagicCircleUnitUpgradedSpeechesCharacter3;
+
+    public Sprite MagicCircleUnitDefaultPortraitCharacter4;
+    public Sprite MagicCircleUnitUpgradedPortraitCharacter4;
+    public List<string> MagicCircleUnitPlacementSpeechesCharacter4;
+    public List<string> MagicCircleUnitUpgradedSpeechesCharacter4;
 
     private Sprite defaultPortrait;
     private Sprite stunnedPortrait;
@@ -193,6 +319,18 @@ public class UIManager : MonoBehaviour
             stunnedPortrait = character2StunnedPortrait;
             stunnedSpeeches = character2StunnedSpeeches;
         }
+        else if (selectedCharacter == 3)
+        {
+            defaultPortrait = character3DefaultPortrait;
+            stunnedPortrait = character3StunnedPortrait;
+            stunnedSpeeches = character3StunnedSpeeches;
+        }
+        else if (selectedCharacter == 4)
+        {
+            defaultPortrait = character4DefaultPortrait;
+            stunnedPortrait = character4StunnedPortrait;
+            stunnedSpeeches = character4StunnedSpeeches;
+        }
 
         SetDefaultPortrait();
     }
@@ -224,6 +362,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = fenceUnitDefaultPortraitCharacter2;
             SetRandomSpeech(fenceUnitPlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = fenceUnitDefaultPortraitCharacter3;
+            SetRandomSpeech(fenceUnitPlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = fenceUnitDefaultPortraitCharacter4;
+            SetRandomSpeech(fenceUnitPlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -239,6 +387,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = fenceUnitUpgradedPortraitCharacter2;
             SetRandomSpeech(fenceUnitUpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = fenceUnitUpgradedPortraitCharacter3;
+            SetRandomSpeech(fenceUnitUpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = fenceUnitUpgradedPortraitCharacter4;
+            SetRandomSpeech(fenceUnitUpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }
@@ -256,6 +414,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = defenseUnitDefaultPortraitCharacter2;
             SetRandomSpeech(defenseUnitPlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = defenseUnitDefaultPortraitCharacter3;
+            SetRandomSpeech(defenseUnitPlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = defenseUnitDefaultPortraitCharacter4;
+            SetRandomSpeech(defenseUnitPlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -271,6 +439,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = defenseUnitUpgradedPortraitCharacter2;
             SetRandomSpeech(defenseUnitUpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = defenseUnitUpgradedPortraitCharacter3;
+            SetRandomSpeech(defenseUnitUpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = defenseUnitUpgradedPortraitCharacter4;
+            SetRandomSpeech(defenseUnitUpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }
@@ -288,6 +466,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = spikeUnitDefaultPortraitCharacter2;
             SetRandomSpeech(spikeUnitPlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = spikeUnitDefaultPortraitCharacter3;
+            SetRandomSpeech(spikeUnitPlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = spikeUnitDefaultPortraitCharacter4;
+            SetRandomSpeech(spikeUnitPlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -303,6 +491,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = spikeUnitUpgradedPortraitCharacter2;
             SetRandomSpeech(spikeUnitUpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = spikeUnitUpgradedPortraitCharacter3;
+            SetRandomSpeech(spikeUnitUpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = spikeUnitUpgradedPortraitCharacter4;
+            SetRandomSpeech(spikeUnitUpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }
@@ -320,6 +518,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = caltropUnitDefaultPortraitCharacter2;
             SetRandomSpeech(caltropUnitPlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = caltropUnitDefaultPortraitCharacter3;
+            SetRandomSpeech(caltropUnitPlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = caltropUnitDefaultPortraitCharacter4;
+            SetRandomSpeech(caltropUnitPlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -335,6 +543,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = caltropUnitUpgradedPortraitCharacter2;
             SetRandomSpeech(caltropUnitUpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = caltropUnitUpgradedPortraitCharacter3;
+            SetRandomSpeech(caltropUnitUpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = caltropUnitUpgradedPortraitCharacter4;
+            SetRandomSpeech(caltropUnitUpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }
@@ -352,6 +570,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = flameTrapUnitDefaultPortraitCharacter2;
             SetRandomSpeech(flameTrapUnitPlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = flameTrapUnitDefaultPortraitCharacter3;
+            SetRandomSpeech(flameTrapUnitPlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = flameTrapUnitDefaultPortraitCharacter4;
+            SetRandomSpeech(flameTrapUnitPlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -367,6 +595,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = flameTrapUnitUpgradedPortraitCharacter2;
             SetRandomSpeech(flameTrapUnitUpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = flameTrapUnitUpgradedPortraitCharacter3;
+            SetRandomSpeech(flameTrapUnitUpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = flameTrapUnitUpgradedPortraitCharacter4;
+            SetRandomSpeech(flameTrapUnitUpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }
@@ -384,6 +622,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = shrineUnitDefaultPortraitCharacter2;
             SetRandomSpeech(shrineUnitPlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = shrineUnitDefaultPortraitCharacter3;
+            SetRandomSpeech(shrineUnitPlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = shrineUnitDefaultPortraitCharacter4;
+            SetRandomSpeech(shrineUnitPlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -399,6 +647,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = shrineUnitUpgradedPortraitCharacter2;
             SetRandomSpeech(shrineUnitUpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = shrineUnitUpgradedPortraitCharacter3;
+            SetRandomSpeech(shrineUnitUpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = shrineUnitUpgradedPortraitCharacter4;
+            SetRandomSpeech(shrineUnitUpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }
@@ -416,6 +674,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = bearTrapUnitDefaultPortraitCharacter2;
             SetRandomSpeech(bearTrapUnitPlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = bearTrapUnitDefaultPortraitCharacter3;
+            SetRandomSpeech(bearTrapUnitPlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = bearTrapUnitDefaultPortraitCharacter4;
+            SetRandomSpeech(bearTrapUnitPlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -431,6 +699,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = bearTrapUnitUpgradedPortraitCharacter2;
             SetRandomSpeech(bearTrapUnitUpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = bearTrapUnitUpgradedPortraitCharacter3;
+            SetRandomSpeech(bearTrapUnitUpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = bearTrapUnitUpgradedPortraitCharacter4;
+            SetRandomSpeech(bearTrapUnitUpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }
@@ -448,6 +726,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = waterStationUnitDefaultPortraitCharacter2;
             SetRandomSpeech(waterStationUnitPlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = waterStationUnitDefaultPortraitCharacter3;
+            SetRandomSpeech(waterStationUnitPlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = waterStationUnitDefaultPortraitCharacter4;
+            SetRandomSpeech(waterStationUnitPlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -463,6 +751,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = waterStationUnitUpgradedPortraitCharacter2;
             SetRandomSpeech(waterStationUnitUpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = waterStationUnitUpgradedPortraitCharacter3;
+            SetRandomSpeech(waterStationUnitUpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = waterStationUnitUpgradedPortraitCharacter4;
+            SetRandomSpeech(waterStationUnitUpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }
@@ -480,6 +778,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = slowUnit1DefaultPortraitCharacter2;
             SetRandomSpeech(slowUnit1PlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = slowUnit1DefaultPortraitCharacter3;
+            SetRandomSpeech(slowUnit1PlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = slowUnit1DefaultPortraitCharacter4;
+            SetRandomSpeech(slowUnit1PlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -495,6 +803,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = slowUnit1UpgradedPortraitCharacter2;
             SetRandomSpeech(slowUnit1UpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = slowUnit1UpgradedPortraitCharacter3;
+            SetRandomSpeech(slowUnit1UpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = slowUnit1UpgradedPortraitCharacter4;
+            SetRandomSpeech(slowUnit1UpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }
@@ -512,6 +830,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = slowUnit2DefaultPortraitCharacter2;
             SetRandomSpeech(slowUnit2PlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = slowUnit2DefaultPortraitCharacter3;
+            SetRandomSpeech(slowUnit2PlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = slowUnit2DefaultPortraitCharacter4;
+            SetRandomSpeech(slowUnit2PlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -527,6 +855,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = slowUnit2UpgradedPortraitCharacter2;
             SetRandomSpeech(slowUnit2UpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = slowUnit2UpgradedPortraitCharacter3;
+            SetRandomSpeech(slowUnit2UpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = slowUnit2UpgradedPortraitCharacter4;
+            SetRandomSpeech(slowUnit2UpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }
@@ -544,6 +882,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = slowUnit3DefaultPortraitCharacter2;
             SetRandomSpeech(slowUnit3PlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = slowUnit3DefaultPortraitCharacter3;
+            SetRandomSpeech(slowUnit3PlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = slowUnit3DefaultPortraitCharacter4;
+            SetRandomSpeech(slowUnit3PlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -559,6 +907,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = slowUnit3UpgradedPortraitCharacter2;
             SetRandomSpeech(slowUnit3UpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = slowUnit3UpgradedPortraitCharacter3;
+            SetRandomSpeech(slowUnit3UpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = slowUnit3UpgradedPortraitCharacter4;
+            SetRandomSpeech(slowUnit3UpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }
@@ -576,6 +934,16 @@ public class UIManager : MonoBehaviour
             characterPortrait.sprite = MagicCircleUnitDefaultPortraitCharacter2;
             SetRandomSpeech(MagicCircleUnitPlacementSpeechesCharacter2);
         }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = MagicCircleUnitDefaultPortraitCharacter3;
+            SetRandomSpeech(MagicCircleUnitPlacementSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = MagicCircleUnitDefaultPortraitCharacter4;
+            SetRandomSpeech(MagicCircleUnitPlacementSpeechesCharacter4);
+        }
         ResetDefaultTimer();
     }
 
@@ -591,6 +959,16 @@ public class UIManager : MonoBehaviour
         {
             characterPortrait.sprite = MagicCircleUnitUpgradedPortraitCharacter2;
             SetRandomSpeech(MagicCircleUnitUpgradedSpeechesCharacter2);
+        }
+        else if (selectedCharacter == 3)
+        {
+            characterPortrait.sprite = MagicCircleUnitUpgradedPortraitCharacter3;
+            SetRandomSpeech(MagicCircleUnitUpgradedSpeechesCharacter3);
+        }
+        else if (selectedCharacter == 4)
+        {
+            characterPortrait.sprite = MagicCircleUnitUpgradedPortraitCharacter4;
+            SetRandomSpeech(MagicCircleUnitUpgradedSpeechesCharacter4);
         }
         ResetDefaultTimer();
     }

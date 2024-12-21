@@ -46,6 +46,24 @@ public class CharacterSelectManager : MonoBehaviour
         // 選択したステージをロード（フェードアウト付き）
         LoadSelectedStage();
     }
+    // キャラクター3を選択
+    public void SelectCharacter3()
+    {
+        SetButtonsInteractable(false); // ボタンを無効化
+        PlayerPrefs.SetInt("SelectedCharacter", 3); // キャラクター3を保存
+
+        // 選択したステージをロード（フェードアウト付き）
+        LoadSelectedStage();
+    }
+    // キャラクター4を選択
+    public void SelectCharacter4()
+    {
+        SetButtonsInteractable(false); // ボタンを無効化
+        PlayerPrefs.SetInt("SelectedCharacter", 4); // キャラクター4を保存
+
+        // 選択したステージをロード（フェードアウト付き）
+        LoadSelectedStage();
+    }
 
     // ステージをロードする
     private void LoadSelectedStage()

@@ -8,6 +8,8 @@ public class StageManager : MonoBehaviour
 {
     public GameObject character1Prefab;
     public GameObject character2Prefab;
+    public GameObject character3Prefab;
+    public GameObject character4Prefab;
 
     public Transform playerSpawnPoint; // プレイヤースポーンポイント
     private GameObject spawnedCharacter;
@@ -60,6 +62,14 @@ public class StageManager : MonoBehaviour
         else if (selectedCharacter == 2)
         {
             spawnedCharacter = Instantiate(character2Prefab, spawnPosition, Quaternion.identity);
+        }
+        else if (selectedCharacter == 3)
+        {
+            spawnedCharacter = Instantiate(character3Prefab, spawnPosition, Quaternion.identity);
+        }
+        else if (selectedCharacter == 4)
+        {
+            spawnedCharacter = Instantiate(character4Prefab, spawnPosition, Quaternion.identity);
         }
     }
 
