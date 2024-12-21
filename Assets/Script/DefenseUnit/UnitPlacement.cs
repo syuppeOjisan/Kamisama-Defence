@@ -9,6 +9,7 @@ public class UnitPlacement : MonoBehaviour
     public GameObject placementPointerPrefab;
     public AudioClip placementSound;
     public AudioClip removalSound;
+    public Animator animator = null;  // アニメーション制御
 
     private GridSystem gridSystem; // ステージ内のGridSystemオブジェクトを参照
     private GameObject placementPointer;
@@ -21,6 +22,8 @@ public class UnitPlacement : MonoBehaviour
 
     private const int MAX_SHRINE_UNITS = 1;       // ShrineUnitの最大設置数
     private const int MAX_WATER_STATION_UNITS = 3; // WaterStationUnitの最大設置数
+
+    
 
     void Start()
     {
@@ -53,6 +56,11 @@ public class UnitPlacement : MonoBehaviour
         {
             unitPrefabs = new List<GameObject>();       // リスト初期化
             unitPrefabs = UnitEquipManager.equipUnits;  // 装備情報をコピー
+        }
+
+        if(animator == null)
+        {
+            Debug.LogError("アニメーターがセットされていません");
         }
     }
 
@@ -301,6 +309,9 @@ public class UnitPlacement : MonoBehaviour
             gridSystem.PlaceUnit(gridPosition, unitPrefab);
             stageManager.AddOfferingPoints(-unitCost);
             PlaySound(placementSound);
+            
+            animator.SetTrigger("UnitPlase");   // ユニット設置のモーション
+
 
             // 設置数カウント
             if (shrineUnit != null) shrineUnitCount++;
