@@ -42,6 +42,7 @@ public class UnitEquipCursor : MonoBehaviour
         cursorPosition.y = Mathf.Clamp(cursorPosition.y, minPosition.y, maxPosition.y);
 
         cursor.anchoredPosition = cursorPosition;
+
     }
 
     // カーソルホバー処理
@@ -96,6 +97,8 @@ public class UnitEquipCursor : MonoBehaviour
             {
                 Toggle toggle = result.gameObject.GetComponent<Toggle>();
                 Button button = result.gameObject.GetComponent<Button>();
+
+                Debug.Log("押されたボタン:" + result.gameObject.name);
 
                 if (toggle != null && toggle.interactable)
                 {
